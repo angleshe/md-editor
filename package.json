@@ -1,0 +1,79 @@
+{
+  "name": "md-editor",
+  "version": "1.0.0",
+  "description": "markdown editor",
+  "main": "index.js",
+  "repository": "git@github.com:angleshe/md-editor.git",
+  "author": "angleshe <478647464@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --inline",
+    "build": "webpack --env=production",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --ext .js,.ts",
+    "lint-staged:style": "stylelint --fix \"src/**/*.scss\" --syntax scss",
+    "ci": "npm run lint-staged:js && npm run lint-staged:style && npm run build"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.1",
+    "@babel/plugin-proposal-optional-chaining": "^7.10.1",
+    "@babel/preset-env": "^7.10.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/copy-webpack-plugin": "^6.0.0",
+    "@types/mini-css-extract-plugin": "^0.9.1",
+    "@types/stylelint-webpack-plugin": "^2.0.0",
+    "@types/webpack-dev-server": "^3.11.0",
+    "autoprefixer": "^9.8.0",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.0.2",
+    "css-loader": "^3.5.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "cz-customizable": "^6.2.0",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-ts": "^4.0.1",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-loader": "^4.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "html-webpack-plugin": "^4.2.1",
+    "husky": "^3.1.0",
+    "lint-staged": "^10.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.0",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^2.0.4",
+    "sass-loader": "^8.0.2",
+    "style-resources-loader": "^1.3.3",
+    "stylelint": "^13.3.3",
+    "stylelint-config-recess-order": "^2.0.4",
+    "stylelint-scss": "^3.17.2",
+    "stylelint-webpack-plugin": "^1.2.3",
+    "ts-loader": "^7.0.5",
+    "ts-node": "^8.8.2",
+    "typescript": "^3.9.5",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.scss": "npm run lint-staged:style",
+    "**/*.{js,ts,tsx}": "npm run lint-staged:js",
+    "**/*.{js,jsx,tsx,ts,less,md,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  }
+}

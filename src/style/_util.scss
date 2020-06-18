@@ -1,0 +1,150 @@
+/**
+ * 获取一个单位的值
+ * @param  {number/string} $unit 单位
+ * @return {number}       单位一
+ */
+@function getOneUnit ($unit) {
+	@if $unit == unit(1px) {
+		@return 1px;
+	} @else if $unit == unit(1deg) {
+		@return 1deg;
+	} @else if $unit == unit(1vw) {
+		@return 1vw;
+	} @else if $unit == unit(1vh) {
+		@return 1vh;
+	} @else if $unit == unit(1em) {
+		@return 1em;
+	} @else if $unit == unit(1rem) {
+		@return 1rem;
+	}
+}
+/**
+ * 获取禁用按钮的颜色
+ * @param  {color} $color 没禁用时的颜色
+ * @return {number}       禁用颜色
+ */
+@function disBtnColor ($color) {
+	@return  rgba($color, .3);
+}
+/**
+ * 添加默认单位    为没有单位的数值添加单位
+ * @param  {number} $num 数值
+ * @param  {string} $unit 单位  默认px
+ * @return {number}      带单位的数值
+ */
+@function addUnit ($num, $unit: px) {
+	@return if(unitless($num), $num * getOneUnit($unit), $num);
+}
+/**
+ * 删除单位
+ * @param  {number} $num 要删除单位的值
+ * @return {number}      删除单位的值
+ */
+@function removeUnit ($num) {
+	@return if(unitless($num), $num, $num / getOneUnit(unit($num)));
+}
+/**
+ * 文本垂直居中
+ * @param  {number} $height 高度
+ */
+@mixin textVerCenter ($height) {
+	$height: addUnit($height);
+	height: $height;
+	line-height: $height;
+}
+/**
+ * 文本居中
+ * @param  {number} $height 高度
+ */
+@mixin textCenter($height) {
+	@include textVerCenter($height);
+	text-align: center;
+}
+// 固定高度定位居中
+@mixin positionCenter {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+// 清除子类的float
+@mixin clearFloat {
+	&:after {
+		display: block;
+		height:0;
+		clear: both;
+		line-height: 0;
+		visibility:hidden;
+		content: ' ';
+	}
+}
+/**
+ * 圆形dom
+ * @param  {大小} $size 直径
+ */
+@mixin circular ($size) {
+	$size: addUnit($size);
+	width: $size;
+	height: $size;
+	border-radius: 50%;
+}
+// 文本换行
+@mixin wrap {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+/**
+ * 省略文本(单行)
+ */
+@mixin textEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// 设置长宽
+@mixin wh ($width, $height: $width) {
+	width: addUnit($width);
+	height: addUnit($height);
+}
+// 设置骨架屏背景颜色
+@mixin skeletonScreenColor {
+	background-color: $initViewColor;
+	background-image: linear-gradient(-45deg, transparent 10%, rgba(#fff, 0.4) 50%, transparent 90%);
+	background-repeat: no-repeat;
+	background-position-y: 0;
+	background-size: 80px 32px;
+	animation: skeleton-stripes 1s linear infinite;
+}
+// 文本两端对齐
+@mixin textSpaceBetween {
+	text-align: justify;
+	&::after {
+		display: inline-block;
+		width: 100%;
+		height: 0px;
+		content: '';
+	}
+}
+/**
+ * 最大有效居中容器
+ * @param  {number} $width   有效宽度
+ */
+@mixin maxCenterContainer ($width) {
+	$width: addUnit($width);
+	box-sizing: border-box;
+	max-width: $width;
+	margin-right: auto;
+	margin-left: auto;
+}
+// 滚动条样式
+@mixin scrollStyle {
+	&::-webkit-scrollbar {
+		display: block;
+		width: 5px;
+		background-color: transparent;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: #E5E5E5;
+		border-radius: 10px;
+	}
+}
