@@ -18,7 +18,7 @@ class MdEditor {
    * @param {ElementType} el 渲染节点
    * @memberof MdEditor
    */
-  // constructor(el: ElementType);
+  constructor(el: ElementType);
   /**
    *Creates an instance of MdEditor.
    * @author angle
@@ -26,7 +26,7 @@ class MdEditor {
    * @param {IOptions} options 配置项
    * @memberof MdEditor
    */
-  // constructor(options: IOptions);
+  constructor(options: IOptions);
 
   constructor(param: ElementType | IOptions) {
     let initOptions: IOptions;

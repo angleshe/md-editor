@@ -23,7 +23,9 @@ module.exports = {
       {
         max: 15
       }
-    ]
+    ],
+    'no-useless-constructor': 'off',
+    '@typescript-eslint/no-useless-constructor': 'error'
   },
   settings: {
     'import/resolver': {
