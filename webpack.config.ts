@@ -10,11 +10,11 @@ export default (env: 'production' | 'development'): Configuration => {
   return {
     mode: isPro ? 'production' : 'development',
     entry: {
-      index: path.resolve(__dirname, './src/script/index.ts')
+      index: path.resolve(__dirname, './demo/index.ts')
     },
     output: {
       path: path.resolve(__dirname, './dist'),
-      filename: 'script/[name].[hash].js',
+      filename: '[name].[hash].js',
       publicPath: isPro ? './' : '/'
     },
     cache: true,
@@ -41,7 +41,7 @@ export default (env: 'production' | 'development'): Configuration => {
             {
               loader: 'style-resources-loader',
               options: {
-                patterns: [path.resolve('./src/style/_util.scss')]
+                patterns: [path.resolve(__dirname, './src/style/_util.scss')]
               }
             }
           ]
@@ -54,7 +54,7 @@ export default (env: 'production' | 'development'): Configuration => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './demo/index.html',
         chunks: ['index'],
         hash: true
       }),
@@ -66,17 +66,13 @@ export default (env: 'production' | 'development'): Configuration => {
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: path.resolve(__dirname, './src/lib'),
-            to: path.resolve(__dirname, './dist/lib')
-          },
-          {
             from: path.resolve(__dirname, './src/public'),
             to: path.resolve(__dirname, './dist/public')
           }
         ]
       }),
       new MiniCssExtractPlugin({
-        filename: 'style/[name].[hash].css'
+        filename: '[name].[hash].css'
       }),
       new webpack.HotModuleReplacementPlugin()
     ],
