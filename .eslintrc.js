@@ -36,7 +36,7 @@ module.exports = {
           ['script', './src/script/'],
           ['style', './src/style/']
         ],
-        extensions: ['.ts', '.js', '.json', 'scss']
+        extensions: ['.ts', '.js', '.json', '.modules.scss', '.scss']
       }
     }
   }

@@ -1,9 +1,35 @@
-import webpack, { Configuration } from 'webpack';
+import webpack, { Configuration, RuleSetUseItem } from 'webpack';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+
+function styleLoaderFactory(isPro: boolean, isModules: boolean): RuleSetUseItem[] {
+  return [
+    {
+      loader: MiniCssExtractPlugin.loader,
+      options: {
+        hmr: !isPro,
+        reloadAll: true
+      }
+    },
+    {
+      loader: 'css-loader',
+      options: {
+        modules: isModules
+      }
+    },
+    'postcss-loader',
+    'sass-loader',
+    {
+      loader: 'style-resources-loader',
+      options: {
+        patterns: [path.resolve(__dirname, './src/style/_util.scss')]
+      }
+    }
+  ];
+}
 
 export default (env: 'production' | 'development'): Configuration => {
   const isPro: boolean = env === 'production';
@@ -27,24 +53,12 @@ export default (env: 'production' | 'development'): Configuration => {
         },
         {
           test: /\.scss$/,
-          use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                hmr: !isPro,
-                reloadAll: true
-              }
-            },
-            'css-loader',
-            'postcss-loader',
-            'sass-loader',
-            {
-              loader: 'style-resources-loader',
-              options: {
-                patterns: [path.resolve(__dirname, './src/style/_util.scss')]
-              }
-            }
-          ]
+          use: styleLoaderFactory(isPro, false),
+          exclude: /\.modules\.scss$/
+        },
+        {
+          test: /\.modules\.scss$/,
+          use: styleLoaderFactory(isPro, true)
         },
         {
           test: /\.jpg$/,
@@ -77,7 +91,7 @@ export default (env: 'production' | 'development'): Configuration => {
       new webpack.HotModuleReplacementPlugin()
     ],
     resolve: {
-      extensions: ['.ts', '.js', '.json', 'scss'],
+      extensions: ['.ts', '.js', '.json', '.modules.scss', '.scss'],
       alias: {
         '@': path.resolve(__dirname, './src'),
         lib: path.resolve(__dirname, './src/lib'),

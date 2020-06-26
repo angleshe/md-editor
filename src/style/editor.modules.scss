@@ -1,0 +1,15 @@
+.editor {
+  position: relative;
+  width: 100%;
+  .content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
+    font-size: 16px;
+    line-height: 1.5;
+    color: #24292e;
+    transform: translateX(-50%);
+  }
+}
