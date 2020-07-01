@@ -7,7 +7,7 @@
   "author": "angleshe <478647464@qq.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --inline",
+    "start": "webpack-dev-server --env=development --inline",
     "build": "webpack --env=production",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js,.ts",

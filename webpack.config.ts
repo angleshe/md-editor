@@ -82,13 +82,20 @@ export default (env: 'production' | 'development'): Configuration => {
           {
             from: path.resolve(__dirname, './src/public'),
             to: path.resolve(__dirname, './dist/public')
+          },
+          {
+            from: path.resolve(__dirname, './src/lib'),
+            to: path.resolve(__dirname, './dist/lib')
           }
         ]
       }),
       new MiniCssExtractPlugin({
         filename: '[name].[hash].css'
       }),
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(env)
+      })
     ],
     resolve: {
       extensions: ['.ts', '.js', '.json', '.modules.scss', '.scss'],

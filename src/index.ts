@@ -1,11 +1,15 @@
 import Options, { ElementType, IOptions } from './script/Options';
 import { isString } from './script/utils/utils';
 import { initUi } from './script/ui';
+import IR from './script/ir';
+import { addScript } from './script/utils/addPublicRes';
+import { createdLute } from './script/markdown/lute';
 
 export interface IEditor {
   options: Required<IOptions>;
   element: HTMLElement;
-  contentElement: HTMLPreElement;
+  ir?: IR;
+  lute?: ILute;
 }
 
 class MdEditor {
@@ -50,11 +54,47 @@ class MdEditor {
 
     this.editor = {
       options,
-      element,
-      contentElement: document.createElement<'pre'>('pre')
+      element
     };
 
+    this.injectLute();
+
     initUi(this.editor);
+
+    this.editor.ir = new IR(this.editor);
+
+    this.editor.ir.show();
+  }
+
+  /**
+   * @description 注入Lute
+   * @author angle
+   * @date 2020-06-27
+   * @private
+   * @returns {Promise<void>}
+   * @memberof MdEditor
+   */
+  private async injectLute(): Promise<void> {
+    if (!window.Lute) {
+      await addScript(this.editor.options.LuteUrl, 'LuteScript');
+    }
+    this.editor.lute = createdLute({
+      autoSpace: this.editor.options.preview.markdown?.autoSpace,
+      chinesePunct: this.editor.options.preview.markdown?.chinesePunct,
+      codeBlockPreview: this.editor.options.preview.markdown?.codeBlockPreview,
+      emojiSite: this.editor.options.hint.emojiPath ?? '',
+      emojis: this.editor.options.hint.emoji ?? {},
+      fixTermTypo: this.editor.options.preview.markdown?.fixTermTypo,
+      footnotes: this.editor.options.preview.markdown?.footnotes,
+      headingAnchor: false,
+      inlineMathDigit: this.editor.options.preview.math?.inlineDigit,
+      linkBase: this.editor.options.preview.markdown?.linkBase,
+      listStyle: this.editor.options.preview.markdown?.listStyle,
+      paragraphBeginningSpace: this.editor.options.preview.markdown?.paragraphBeginningSpace,
+      sanitize: this.editor.options.preview.markdown?.sanitize,
+      setext: this.editor.options.preview.markdown?.setext,
+      toc: this.editor.options.preview.markdown?.toc
+    });
   }
 }
 

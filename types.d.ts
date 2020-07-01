@@ -1,5 +1,9 @@
+/* eslint-disable @typescript-eslint/interface-name-prefix */
 declare module '*.scss';
-declare const Lute: ILute;
+
+interface Window {
+  Lute: ILute;
+}
 
 interface ILuteNode {
   TokensStr: () => string;
@@ -88,14 +92,6 @@ interface ILuteRender {
   renderBackslashContent?: ILuteRenderCallback;
 }
 
-interface ILuteOptions extends IMarkdownConfig {
-  emojis: { [key: string]: string };
-  emojiSite: string;
-  headingAnchor: boolean;
-  inlineMathDigit: boolean;
-  lazyLoadImage?: string;
-}
-
 interface ILute {
   WalkStop: number;
   WalkSkipChildren: number;
@@ -117,35 +113,35 @@ interface ILute {
     };
   }): void;
 
-  SetChineseParagraphBeginningSpace(enable: boolean): void;
+  SetChineseParagraphBeginningSpace(enable?: boolean): void;
 
-  SetRenderListStyle(enable: boolean): void;
+  SetRenderListStyle(enable?: boolean): void;
 
-  SetLinkBase(url: string): void;
+  SetLinkBase(url?: string): void;
 
-  SetSanitize(enable: boolean): void;
+  SetSanitize(enable?: boolean): void;
 
   SetHeadingAnchor(enable: boolean): void;
 
   SetImageLazyLoading(imagePath: string): void;
 
-  SetInlineMathAllowDigitAfterOpenMarker(enable: boolean): void;
+  SetInlineMathAllowDigitAfterOpenMarker(enable?: boolean): void;
 
-  SetToC(enable: boolean): void;
+  SetToC(enable?: boolean): void;
 
-  SetFootnotes(enable: boolean): void;
+  SetFootnotes(enable?: boolean): void;
 
-  SetAutoSpace(enable: boolean): void;
+  SetAutoSpace(enable?: boolean): void;
 
-  SetChinesePunct(enable: boolean): void;
+  SetChinesePunct(enable?: boolean): void;
 
-  SetFixTermTypo(enable: boolean): void;
+  SetFixTermTypo(enable?: boolean): void;
 
   SetEmojiSite(emojiSite: string): void;
 
-  SetSetext(enable: boolean): void;
+  SetSetext(enable?: boolean): void;
 
-  SetVditorCodeBlockPreview(enable: boolean): void;
+  SetVditorCodeBlockPreview(enable?: boolean): void;
 
   PutEmojis(emojis: { [key: string]: string }): void;
 

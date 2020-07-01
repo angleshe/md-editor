@@ -1,4 +1,7 @@
 import './reset.scss';
 import MdEditor from '../src';
 
-new MdEditor('.editor');
+new MdEditor({
+  el: '.editor',
+  placeholder: 'test'
+});
