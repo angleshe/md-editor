@@ -98,7 +98,7 @@ export default class Options {
     height: '100%',
     minHeight: '30vh',
     placeholder: '',
-    LuteUrl: '/lib/lute.min.js',
+    LuteUrl: './lib/lute.min.js',
     debugger: false,
     transform: null,
     preview: {
