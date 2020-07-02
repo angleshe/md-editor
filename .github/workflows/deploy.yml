@@ -13,12 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@master
       - name: Inject dependence
-        uses: borales/actions-yarn@v2.0.0
+        uses: borales/actions-yarn@master
         with:
           cmd: install
       - name: Build
-        run: npm run ci
+        uses: borales/actions-yarn@master
+        with:
+          cmd: ci
       - name: deploy
-        run: npm run gh-pages
+        uses: borales/actions-yarn@master
+        with:
+          cmd: gh-pages
