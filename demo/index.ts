@@ -3,5 +3,6 @@ import MdEditor from '../src';
 
 new MdEditor({
   el: '.editor',
-  placeholder: 'test'
+  placeholder: 'test',
+  debugger: true
 });

@@ -1,6 +1,10 @@
 .editor {
   position: relative;
   width: 100%;
+
+  --ir-link-color: #008000;
+  --ir-bracket-color: #0000ff;
+
   .content {
     position: absolute;
     top: 0;
@@ -11,6 +15,8 @@
     font-size: 16px;
     line-height: 1.5;
     color: #24292e;
+    word-break: break-word;
+    white-space: pre-wrap;
     transform: translateX(-50%);
     &.show {
       display: block;
@@ -19,8 +25,25 @@
         content: attr(placeholder)
       }
     }
-    p {
+    p,li {
       min-height: 24px;
+    }
+    :global(.vditor-ir__node--expand) {
+      :global(.vditor-ir__marker--bracket) {
+        color: var(--ir-bracket-color);
+      }
+      :global(.vditor-ir__link) {
+        color: var(--ir-bracket-color);
+        text-decoration: underline;
+      }
+
+      :global(.vditor-ir__marker--paren) {
+        color: var(--ir-link-color);
+      }
+
+      :global(.vditor-ir__marker--link) {
+        color: var(--ir-link-color);
+      }
     }
   }
 }

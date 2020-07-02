@@ -68,6 +68,17 @@ export interface IOptions {
    */
   LuteUrl?: string;
   /**
+   * @description 是否开启调试模式
+   * @type {boolean}
+   * @memberof IOptions
+   */
+  debugger?: boolean;
+  /**
+   * @description 渲染转换函数
+   * @memberof IOptions
+   */
+  transform?: ((html: string) => string) | null;
+  /**
    * @description 视图配置
    * @type {IPreview}
    * @memberof IOptions
@@ -88,6 +99,8 @@ export default class Options {
     minHeight: '30vh',
     placeholder: '',
     LuteUrl: '/lib/lute.min.js',
+    debugger: false,
+    transform: null,
     preview: {
       markdown: {
         autoSpace: false,
