@@ -23,6 +23,7 @@ jobs:
         with:
           cmd: ci
       - name: deploy
-        uses: borales/actions-yarn@master
+        uses: peaceiris/actions-gh-pages@master
         with:
-          cmd: gh-pages
+          github_token: ${{ secrets.DEPLOY_TOKEN }}
+          publish_dir: ./dist
