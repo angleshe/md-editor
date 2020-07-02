@@ -1,4 +1,7 @@
 module.exports = {
   extends: ['stylelint-config-recess-order'],
-  plugins: ['stylelint-scss']
+  plugins: ['stylelint-prettier', 'stylelint-scss'],
+  rules: {
+    'prettier/prettier': true
+  }
 };

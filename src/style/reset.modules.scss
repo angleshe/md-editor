@@ -66,7 +66,7 @@
   button,
   input,
   textarea,
-  *[contenteditable=true] {
+  *[contenteditable='true'] {
     padding: 0;
     color: inherit;
     background-color: transparent;
@@ -92,8 +92,7 @@
     -webkit-appearance: none;
   }
 
-  input[type="number"] {
+  input[type='number'] {
     -moz-appearance: textfield;
   }
-
 }
