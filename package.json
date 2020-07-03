@@ -8,14 +8,15 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --env=development --inline",
-    "build": "webpack --env=production",
+    "build": "TS_NODE_FILES=true webpack --env=production",
+    "build:doc": "TS_NODE_FILES=true webpack --env=production --doc",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js,.ts",
     "lint-staged:style": "stylelint --syntax scss",
     "lint:js": "eslint --ext .js,.ts .",
     "lint:style": "stylelint --fix \"./**/*.scss\" --syntax scss",
     "lint:prettier": "check-prettier lint",
-    "ci": "npm run lint:js && npm run lint:style && npm run lint:prettier && npm run build",
+    "ci": "npm run lint:js && npm run lint:style && npm run lint:prettier && npm run build:doc",
     "gh-pages": "gh-pages -d dist"
   },
   "devDependencies": {
@@ -58,6 +59,8 @@
     "stylelint-webpack-plugin": "^1.2.3",
     "ts-loader": "^7.0.5",
     "ts-node": "^8.8.2",
+    "typedoc": "^0.17.8",
+    "typedoc-webpack-plugin": "^1.1.4",
     "typescript": "^3.9.5",
     "url-loader": "^4.1.0",
     "webpack": "^4.42.1",

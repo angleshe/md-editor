@@ -4,6 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import TypedocWebpackPlugin from 'typedoc-webpack-plugin';
 
 function styleLoaderFactory(isPro: boolean, isModules: boolean): RuleSetUseItem[] {
   return [
@@ -31,7 +32,7 @@ function styleLoaderFactory(isPro: boolean, isModules: boolean): RuleSetUseItem[
   ];
 }
 
-export default (env: 'production' | 'development'): Configuration => {
+export default (env: 'production' | 'development', { doc = false }): Configuration => {
   const isPro: boolean = env === 'production';
   return {
     mode: isPro ? 'production' : 'development',
@@ -95,7 +96,8 @@ export default (env: 'production' | 'development'): Configuration => {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env)
-      })
+      }),
+      ...(doc ? [new TypedocWebpackPlugin()] : [])
     ],
     resolve: {
       extensions: ['.ts', '.js', '.json', '.modules.scss', '.scss'],
