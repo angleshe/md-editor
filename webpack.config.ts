@@ -97,7 +97,23 @@ export default (env: 'production' | 'development', { doc = false }): Configurati
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env)
       }),
-      ...(doc ? [new TypedocWebpackPlugin()] : [])
+      ...(doc
+        ? [
+            new TypedocWebpackPlugin(
+              {
+                out: './docs',
+                module: 'commonjs',
+                target: 'es5',
+                exclude: ['**/node_modules/**/*.*'],
+                experimentalDecorators: true,
+                excludeExternals: true,
+                includeDeclarations: true,
+                ignoreCompilerErrors: true
+              },
+              ['./src', './@types/types.d.ts']
+            )
+          ]
+        : [])
     ],
     resolve: {
       extensions: ['.ts', '.js', '.json', '.modules.scss', '.scss'],

@@ -1,4 +1,4 @@
-import { IEditor } from '@/index';
+import { IEditor } from '../../index';
 import style from 'style/editor.modules.scss';
 import reset from 'style/reset.modules.scss';
 

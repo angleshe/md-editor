@@ -1,4 +1,4 @@
-import { IEditor } from '@/index';
+import { IEditor } from '../../index';
 import { setRangeByWbr } from '../utils/selection';
 import { getClosestBlock } from '../utils/closestBlock';
 import { log } from '../utils/log';

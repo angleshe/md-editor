@@ -1,6 +1,6 @@
-import { IEditor } from '@/index';
+import { IEditor } from '../../index';
 import style from 'style/editor.modules.scss';
-import autoBind from '../utils/decorators';
+import { autoBind } from '../utils/decorators';
 import { input } from './input';
 
 class IR {
@@ -31,6 +31,14 @@ class IR {
     this.contentDom.removeEventListener<'input'>('input', this.inputHandler);
   }
 
+  /**
+   * @description
+   * @author angle
+   * @date 2020-07-04
+   * @private
+   * @memberof IR
+   * @autoBind
+   */
   @autoBind
   private inputHandler(): void {
     const selection = getSelection();

@@ -10,7 +10,7 @@
  * @param {TypedPropertyDescriptor<(...arg: any[]) => any>} descriptor
  * @returns {TypedPropertyDescriptor<(...arg: any[]) => any>}
  */
-export default function autoBind(
+export function autoBind(
   target: Record<string, any>,
   propertyKey: string,
   { configurable, enumerable, value: fn }: TypedPropertyDescriptor<(...arg: any[]) => any>
