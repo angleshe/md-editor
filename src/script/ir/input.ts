@@ -27,8 +27,11 @@ export function input(editor: IEditor, range: Range): void {
     }
     log('ir/input', content, '解析md内容', editor.options.debugger);
     let html: string = editor.lute?.SpinVditorIRDOM(content) ?? '';
+
     // 过滤\n
-    html = html.replace(/\n/g, '');
+    // 2020.07.08 有些地方不需要过滤(如code), 暂时没发现需要过滤的 暂时去除
+    // html = html.replace(/\n/g, '');
+
     //
     if (editor.options.transform) {
       html = editor.options.transform(html);

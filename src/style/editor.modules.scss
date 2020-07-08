@@ -4,6 +4,8 @@
 
   --ir-link-color: #008000;
   --ir-bracket-color: #0000ff;
+  --second-color: rgba(88, 96, 105, 0.36);
+  --ir-heading-color: #660e7a;
 
   .content {
     position: absolute;
@@ -47,6 +49,59 @@
       :global(.vditor-ir__marker--link) {
         color: var(--ir-link-color);
       }
+
+      :global(.vditor-ir__marker--info) {
+        color: var(--ir-heading-color);
+      }
+    }
+
+    :global(.vditor-ir__node[data-type='code-block']) {
+      &::before,
+      &::after {
+        color: var(--second-color);
+        content: '```';
+      }
+      span[data-type='code-block-open-marker'],
+      span[data-type='code-block-close-marker'],
+      span[data-type='math-block-open-marker'],
+      span[data-type='math-block-close-marker'] {
+        display: none;
+      }
+    }
+
+    :global(.vditor-ir__marker--pre) {
+      code:not(.hljs):not(.highlight-chroma) {
+        min-height: 15px;
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-family: mononoki, Consolas, 'Liberation Mono', Menlo, Courier, monospace,
+          'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol',
+          'Android Emoji', 'EmojiSymbols';
+        font-size: 85%;
+        word-break: break-word;
+        white-space: pre-wrap;
+        background-color: rgba(27, 31, 35, 0.05);
+        background-size: 20px 20px;
+        border-radius: 3px;
+      }
+    }
+    pre > code {
+      display: block;
+      width: 100%;
+      min-height: 15px;
+      padding: 0.5em;
+      margin: 0;
+      overflow: auto;
+      font-family: mononoki, Consolas, 'Liberation Mono', Menlo, Courier, monospace,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol',
+        'Android Emoji', 'EmojiSymbols';
+      font-size: 85%;
+      word-break: initial;
+      word-wrap: normal;
+      white-space: pre;
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8AgMAAABHkjHhAAAACVBMVEWAgIBaWlo+Pj7rTFvWAAAAA3RSTlMHCAw+VhR4AAAA+klEQVQoz4WSMW7EQAhFPxKWNh2FCx+HkaZI6RRb5DYbyVfIJXLKDCFoMbaTKSw/8ZnPAPjaH2xgZcUNUDADD7D9LtDBCLZ45fbkvo/30K8yeI64pPwl6znd/3n/Oe93P3ho9qeh72btTFzqkz0rsJle8Zr81OLEwZ1dv/713uWqvu2pl+k0fy7MWtj9r/tN5q/02z89qa/L4Dc2LvM93kezPfXlME/O86EbY/V9GB9ePX8G1/6W+/9h1dq/HGfTfzT3j/xNo7522Bfnqe5jO/fvhVthlfk434v3iO9zG/UOphyPeinPl1J8Gtaa7xPTa/Dk+RIs4deMvwGvcGsmsCvJ0AAAAABJRU5ErkJggg==);
+      background-size: 20px 20px;
+      border-radius: 5px;
     }
   }
 }

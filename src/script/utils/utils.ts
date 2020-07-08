@@ -29,6 +29,20 @@ export function isString(value: any): value is string {
 }
 
 /**
+ * @description 判断是否为boolean类型
+ * @author angle
+ * @date 2020-07-07
+ * @export
+ * @param {*} value
+ * @returns {value is boolean}
+ * @example
+ *  isBoolean(true);
+ */
+export function isBoolean(value: any): value is boolean {
+  return isType(value, 'Boolean');
+}
+
+/**
  * @description 为大小添加单位
  * @author angle
  * @date 2020-06-26
@@ -39,4 +53,27 @@ export function isString(value: any): value is string {
  */
 export function addSizeUnit(value: number | string, unit: string = 'px'): string {
   return isString(value) ? value : value + unit;
+}
+
+/**
+ * @description 是否mac系统
+ * @author angle
+ * @date 2020-07-07
+ * @export
+ * @returns {boolean}
+ */
+export function isMacSystem(): boolean {
+  return navigator.platform.toUpperCase().includes('MAC');
+}
+
+/**
+ * @description 是否按下windows/ctrl mac/meta键
+ * @author angle
+ * @date 2020-07-07
+ * @export
+ * @param {KeyboardEvent} event
+ * @returns {boolean}
+ */
+export function isTouchCtrlKey(event: KeyboardEvent): boolean {
+  return isMacSystem() ? event.metaKey && !event.ctrlKey : !event.metaKey && event.ctrlKey;
 }

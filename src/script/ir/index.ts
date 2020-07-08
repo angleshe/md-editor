@@ -2,6 +2,7 @@ import { IEditor } from '../../index';
 import style from 'style/editor.modules.scss';
 import { autoBind } from '../utils/decorators';
 import { input } from './input';
+import { processKeydown } from './processKeydown';
 
 class IR {
   private readonly editor: IEditor;
@@ -24,15 +25,17 @@ class IR {
 
   private bind(): void {
     this.unbind();
+    this.contentDom.addEventListener<'keydown'>('keydown', this.keydownHandler);
     this.contentDom.addEventListener<'input'>('input', this.inputHandler);
   }
 
   private unbind(): void {
+    this.contentDom.removeEventListener<'keydown'>('keydown', this.keydownHandler);
     this.contentDom.removeEventListener<'input'>('input', this.inputHandler);
   }
 
   /**
-   * @description
+   * @description 输入内容事件
    * @author angle
    * @date 2020-07-04
    * @private
@@ -46,6 +49,19 @@ class IR {
       const range: Range = selection.getRangeAt(0).cloneRange();
       input(this.editor, range);
     }
+  }
+
+  /**
+   * @description 按钮事件
+   * @author angle
+   * @date 2020-07-07
+   * @private
+   * @param {KeyboardEvent} event
+   * @memberof IR
+   */
+  @autoBind
+  private keydownHandler(event: KeyboardEvent): void {
+    processKeydown(this.editor, event);
   }
 
   show(): void {
