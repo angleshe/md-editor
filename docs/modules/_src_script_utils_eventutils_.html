@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;src/script/markdown/lute&quot; | md-editor</title>
+	<title>&quot;src/script/utils/eventUtils&quot; | md-editor</title>
 	<meta name="description" content="Documentation for md-editor">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_src_script_markdown_lute_.html">&quot;src/script/markdown/lute&quot;</a>
+					<a href="_src_script_utils_eventutils_.html">&quot;src/script/utils/eventUtils&quot;</a>
 				</li>
 			</ul>
-			<h1>Module &quot;src/script/markdown/lute&quot;</h1>
+			<h1>Module &quot;src/script/utils/eventUtils&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -69,16 +69,11 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_src_script_markdown_lute_.iluteoptions.html" class="tsd-kind-icon">ILute<wbr>Options</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_src_script_markdown_lute_.imarkdownconfig.html" class="tsd-kind-icon">IMarkdown<wbr>Config</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_script_markdown_lute_.html#createdlute" class="tsd-kind-icon">created<wbr>Lute</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_script_utils_eventutils_.html#isonlytouchenter" class="tsd-kind-icon">is<wbr>Only<wbr>Touch<wbr>Enter</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_script_utils_eventutils_.html#istouchctrlkey" class="tsd-kind-icon">is<wbr>Touch<wbr>Ctrl<wbr>Key</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_script_utils_eventutils_.html#matchhotkey" class="tsd-kind-icon">match<wbr>Hot<wbr>Key</a></li>
 							</ul>
 						</section>
 					</div>
@@ -87,28 +82,28 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="createdlute" class="tsd-anchor"></a>
-					<h3>created<wbr>Lute</h3>
+					<a name="isonlytouchenter" class="tsd-anchor"></a>
+					<h3>is<wbr>Only<wbr>Touch<wbr>Enter</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">created<wbr>Lute<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_script_markdown_lute_.iluteoptions.html" class="tsd-signature-type">ILuteOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ILute</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Only<wbr>Touch<wbr>Enter<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">KeyboardEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/14baaed/src/script/markdown/lute.ts#L43">src/script/markdown/lute.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/14baaed/src/script/utils/eventUtils.ts#L23">src/script/utils/eventUtils.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
 									<dt>description</dt>
-									<dd><p>创建Lute</p>
+									<dd><p>是否只按下回车</p>
 									</dd>
 									<dt>author</dt>
 									<dd><p>angle</p>
 									</dd>
 									<dt>date</dt>
-									<dd><p>2020-06-27</p>
+									<dd><p>2020-07-08</p>
 									</dd>
 									<dt>export</dt>
 									<dd></dd>
@@ -117,10 +112,98 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>options: <a href="../interfaces/_src_script_markdown_lute_.iluteoptions.html" class="tsd-signature-type">ILuteOptions</a></h5>
+									<h5>event: <span class="tsd-signature-type">KeyboardEvent</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ILute</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="istouchctrlkey" class="tsd-anchor"></a>
+					<h3>is<wbr>Touch<wbr>Ctrl<wbr>Key</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Touch<wbr>Ctrl<wbr>Key<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">KeyboardEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/14baaed/src/script/utils/eventUtils.ts#L11">src/script/utils/eventUtils.ts:11</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>是否按下windows/ctrl mac/meta键</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-07</p>
+									</dd>
+									<dt>export</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">KeyboardEvent</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="matchhotkey" class="tsd-anchor"></a>
+					<h3>match<wbr>Hot<wbr>Key</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">match<wbr>Hot<wbr>Key<span class="tsd-signature-symbol">(</span>hotkey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">KeyboardEvent</span>, separator<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/14baaed/src/script/utils/eventUtils.ts#L37">src/script/utils/eventUtils.ts:37</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>判断是否按下组合快捷键</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-14</p>
+									</dd>
+									<dt>export</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>hotkey: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>组合快捷键</p>
+									</div>
+								</li>
+								<li>
+									<h5>event: <span class="tsd-signature-type">KeyboardEvent</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>按键事件</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> separator: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;-&quot;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -150,7 +233,7 @@
 					<li class=" tsd-kind-module">
 						<a href="_src_script_ir_processkeydown_.html">&quot;src/script/ir/process<wbr>Keydown&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="_src_script_markdown_lute_.html">&quot;src/script/markdown/lute&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -168,7 +251,7 @@
 					<li class=" tsd-kind-module">
 						<a href="_src_script_utils_domutils_.html">&quot;src/script/utils/dom<wbr>Utils&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="_src_script_utils_eventutils_.html">&quot;src/script/utils/event<wbr>Utils&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -190,14 +273,14 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_src_script_markdown_lute_.iluteoptions.html" class="tsd-kind-icon">ILute<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_src_script_markdown_lute_.imarkdownconfig.html" class="tsd-kind-icon">IMarkdown<wbr>Config</a>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_src_script_utils_eventutils_.html#isonlytouchenter" class="tsd-kind-icon">is<wbr>Only<wbr>Touch<wbr>Enter</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_src_script_markdown_lute_.html#createdlute" class="tsd-kind-icon">created<wbr>Lute</a>
+						<a href="_src_script_utils_eventutils_.html#istouchctrlkey" class="tsd-kind-icon">is<wbr>Touch<wbr>Ctrl<wbr>Key</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_src_script_utils_eventutils_.html#matchhotkey" class="tsd-kind-icon">match<wbr>Hot<wbr>Key</a>
 					</li>
 				</ul>
 			</nav>
