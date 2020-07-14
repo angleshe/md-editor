@@ -54,26 +54,3 @@ export function isBoolean(value: any): value is boolean {
 export function addSizeUnit(value: number | string, unit: string = 'px'): string {
   return isString(value) ? value : value + unit;
 }
-
-/**
- * @description 是否mac系统
- * @author angle
- * @date 2020-07-07
- * @export
- * @returns {boolean}
- */
-export function isMacSystem(): boolean {
-  return navigator.platform.toUpperCase().includes('MAC');
-}
-
-/**
- * @description 是否按下windows/ctrl mac/meta键
- * @author angle
- * @date 2020-07-07
- * @export
- * @param {KeyboardEvent} event
- * @returns {boolean}
- */
-export function isTouchCtrlKey(event: KeyboardEvent): boolean {
-  return isMacSystem() ? event.metaKey && !event.ctrlKey : !event.metaKey && event.ctrlKey;
-}

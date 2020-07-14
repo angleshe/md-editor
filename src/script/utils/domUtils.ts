@@ -120,3 +120,38 @@ export function replaceElement(oldElement: HTMLElement, newElement: HTMLElement)
 export function hasClass(element: HTMLElement, className: string): boolean {
   return ` ${element.className}`.includes(` ${className}`);
 }
+
+/**
+ * @description 是否mac系统
+ * @author angle
+ * @date 2020-07-07
+ * @export
+ * @returns {boolean}
+ */
+export function isMacSystem(): boolean {
+  return navigator.platform.toUpperCase().includes('MAC');
+}
+
+/**
+ * @description 是否按下windows/ctrl mac/meta键
+ * @author angle
+ * @date 2020-07-07
+ * @export
+ * @param {KeyboardEvent} event
+ * @returns {boolean}
+ */
+export function isTouchCtrlKey(event: KeyboardEvent): boolean {
+  return isMacSystem() ? event.metaKey && !event.ctrlKey : !event.metaKey && event.ctrlKey;
+}
+
+/**
+ * @description 是否只按下回车
+ * @author angle
+ * @date 2020-07-08
+ * @export
+ * @param {KeyboardEvent} event
+ * @returns {boolean}
+ */
+export function isOnlyTouchEnter(event: KeyboardEvent): boolean {
+  return !isTouchCtrlKey(event) && !event.altKey && !event.shiftKey && event.key === 'Enter';
+}

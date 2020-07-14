@@ -1,5 +1,5 @@
 import { IEditor } from '../../index';
-import { fixCodeLanguage, fixCodeBlock } from '../utils/fixBrowserBehavior';
+import { fixCodeLanguage, fixCodeBlock, fixTable } from '../utils/fixBrowserBehavior';
 
 /**
  * @description 按键处理
@@ -15,6 +15,9 @@ export function processKeydown(editor: IEditor, event: KeyboardEvent): void {
     return;
   }
   if (fixCodeBlock(editor, event, range)) {
+    return;
+  }
+  if (fixTable(editor, event, range)) {
     return;
   }
 }
