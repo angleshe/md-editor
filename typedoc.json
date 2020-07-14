@@ -1,0 +1,10 @@
+{
+  "out": "./dist/docs",
+  "module": "commonjs",
+  "target": "es5",
+  "exclude": ["**/node_modules/**/*.*", ".js"],
+  "experimentalDecorators": true,
+  "excludeExternals": true,
+  "includeDeclarations": true,
+  "ignoreCompilerErrors": true
+}

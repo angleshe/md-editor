@@ -4,7 +4,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import TypedocWebpackPlugin from 'typedoc-webpack-plugin';
 
 function styleLoaderFactory(isPro: boolean, isModules: boolean): RuleSetUseItem[] {
   return [
@@ -32,7 +31,7 @@ function styleLoaderFactory(isPro: boolean, isModules: boolean): RuleSetUseItem[
   ];
 }
 
-export default (env: 'production' | 'development', { doc = false }): Configuration => {
+export default (env: 'production' | 'development'): Configuration => {
   const isPro: boolean = env === 'production';
   return {
     mode: isPro ? 'production' : 'development',
@@ -96,24 +95,7 @@ export default (env: 'production' | 'development', { doc = false }): Configurati
       new webpack.HotModuleReplacementPlugin(),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env)
-      }),
-      ...(doc
-        ? [
-            new TypedocWebpackPlugin(
-              {
-                out: './docs',
-                module: 'commonjs',
-                target: 'es5',
-                exclude: ['**/node_modules/**/*.*'],
-                experimentalDecorators: true,
-                excludeExternals: true,
-                includeDeclarations: true,
-                ignoreCompilerErrors: true
-              },
-              ['./src', './@types/types.d.ts']
-            )
-          ]
-        : [])
+      })
     ],
     resolve: {
       extensions: ['.ts', '.js', '.json', '.modules.scss', '.scss'],
