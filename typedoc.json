@@ -3,6 +3,7 @@
   "module": "commonjs",
   "target": "es5",
   "exclude": ["**/node_modules/**/*.*", ".js"],
+  "includes": ["./src", "./@types"],
   "experimentalDecorators": true,
   "excludeExternals": true,
   "includeDeclarations": true,
