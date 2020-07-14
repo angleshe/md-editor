@@ -47,3 +47,12 @@ export function setRangeByWbr(element: HTMLElement, range: Range): void {
     setSelectionFocus(range);
   }
 }
+
+export function setRangeByElement(
+  element: HTMLElement,
+  range: Range,
+  position: 'before' | 'after' = 'before'
+): void {
+  range.selectNode(element);
+  range.collapse(position === 'before');
+}

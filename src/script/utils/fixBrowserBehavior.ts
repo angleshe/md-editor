@@ -1,7 +1,14 @@
 import { IEditor } from '../../index';
-import { getClosestByAttribute, getClosestByClassName, getClosestElement } from './closestBlock';
-import { isOnlyTouchEnter } from './domUtils';
+import {
+  getClosestByAttribute,
+  getClosestByClassName,
+  getClosestElement,
+  getClosestBlock
+} from './closestBlock';
 import { input } from '../ir/input';
+import { isOnlyTouchEnter, matchHotKey } from './eventUtils';
+import { insertRow } from './tableUtils';
+import { setRangeByWbr } from './selection';
 
 /**
  * @description 修复code语言
@@ -69,8 +76,9 @@ export function fixCodeBlock(editor: IEditor, event: KeyboardEvent, range: Range
  * @returns {boolean}
  */
 export function fixTable(editor: IEditor, event: KeyboardEvent, range: Range): boolean {
-  const tableElement = getClosestElement(range.startContainer);
+  const tableElement = getClosestBlock(range.startContainer);
   if (tableElement) {
+    console.log(tableElement);
     // enter自动补全
     if (isOnlyTouchEnter(event)) {
       const tableText: string = tableElement.textContent?.trim() ?? '';
@@ -88,6 +96,18 @@ export function fixTable(editor: IEditor, event: KeyboardEvent, range: Range): b
           event.preventDefault();
           return true;
         }
+      }
+    }
+    // table快捷键
+    if (tableElement.tagName.toLocaleLowerCase() === 'table') {
+      if (matchHotKey('⌘-Enter', event)) {
+        const cellsElement = getClosestElement(range.startContainer);
+        if (cellsElement) {
+          insertRow(cellsElement);
+        }
+        setRangeByWbr(tableElement, range);
+        event.preventDefault();
+        return true;
       }
     }
   }
