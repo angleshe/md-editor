@@ -3,69 +3,76 @@ import { isBoolean } from './utils';
 /**
  * @description 查找符合条件的父节点
  * @author angle
- * @date 2020-07-07
+ * @date 2020-07-21
  * @export
+ * @template T 返回节点类型
  * @param {(HTMLElement | null)} element 当前节点
  * @param {(element: HTMLElement) => boolean} findFn 查找条件
- * @returns {(HTMLElement | null)} 符合要求的节点
+ * @returns {(T | null)} 符合要求的节点
  */
-export function findParentElement(
+export function findParentElement<T extends HTMLElement = HTMLElement>(
   element: HTMLElement | null,
   findFn: (element: HTMLElement) => boolean
-): HTMLElement | null;
+): T | null;
+
 /**
  * @description 查找符合条件的父节点
  * @author angle
- * @date 2020-07-07
+ * @date 2020-07-21
  * @export
+ * @template T 返回节点类型
  * @param {(HTMLElement | null)} element 当前节点
  * @param {(element: HTMLElement) => boolean} findFn 查找条件
  * @param {(element: HTMLElement) => boolean} isEndFn 结束条件
- * @returns {(HTMLElement | null)} 符合要求的节点
+ * @returns {(T | null)} 符合要求的节点
  */
-export function findParentElement(
+export function findParentElement<T extends HTMLElement = HTMLElement>(
   element: HTMLElement | null,
   findFn: (element: HTMLElement) => boolean,
   isEndFn: (element: HTMLElement) => boolean
-): HTMLElement | null;
+): T | null;
+
 /**
  * @description 查找符合条件的父节点
  * @author angle
- * @date 2020-07-07
+ * @date 2020-07-21
  * @export
+ * @template T 返回节点类型
  * @param {(HTMLElement | null)} element 当前节点
  * @param {(element: HTMLElement) => boolean} findFn 查找条件
  * @param {boolean} isSelf 是否包含当前节点
- * @returns {(HTMLElement | null)}
+ * @returns {(T | null)} 符合要求的节点
  */
-export function findParentElement(
+export function findParentElement<T extends HTMLElement = HTMLElement>(
   element: HTMLElement | null,
   findFn: (element: HTMLElement) => boolean,
   isSelf: boolean
-): HTMLElement | null;
+): T | null;
+
 /**
  * @description 查找符合条件的父节点
  * @author angle
- * @date 2020-07-07
+ * @date 2020-07-21
  * @export
+ * @template T 返回节点类型
  * @param {(HTMLElement | null)} element 当前节点
  * @param {(element: HTMLElement) => boolean} findFn 查找条件
  * @param {(element: HTMLElement) => boolean} isEndFn 结束条件
  * @param {boolean} isSelf 是否包含当前节点
- * @returns {(HTMLElement | null)}
+ * @returns {(T | null)} 符合要求的节点
  */
-export function findParentElement(
+export function findParentElement<T extends HTMLElement = HTMLElement>(
   element: HTMLElement | null,
   findFn: (element: HTMLElement) => boolean,
   isEndFn: (element: HTMLElement) => boolean,
   isSelf: boolean
-): HTMLElement | null;
+): T | null;
 
-export function findParentElement(
+export function findParentElement<T extends HTMLElement = HTMLElement>(
   element: HTMLElement | null,
   findFn: (element: HTMLElement) => boolean,
   ...arg: (((element: HTMLElement) => boolean) | boolean | undefined)[]
-): HTMLElement | null {
+): T | null {
   let isEndFn: ((element: HTMLElement) => boolean) | null = null;
   let isSelf: boolean = false;
   if (arg.length === 0) {
@@ -87,7 +94,7 @@ export function findParentElement(
     let target: HTMLElement | null = isSelf ? element : element.parentElement;
     while (target && !(isEndFn && isEndFn(target))) {
       if (findFn(target)) {
-        return target;
+        return target as T;
       }
       target = target.parentElement;
     }
@@ -130,4 +137,24 @@ export function hasClass(element: HTMLElement, className: string): boolean {
  */
 export function isMacSystem(): boolean {
   return navigator.platform.toUpperCase().includes('MAC');
+}
+
+/**
+ * @description 获取dom在父本的索引值
+ * @author angle
+ * @date 2020-07-21
+ * @export
+ * @param {HTMLElement} element
+ * @returns {number}
+ */
+export function getIndexByParents(element: HTMLElement): number {
+  const parentElement = element.parentElement;
+  if (parentElement) {
+    for (let i: number = 0; i < parentElement.childElementCount; i++) {
+      if (parentElement.children[i].isEqualNode(element)) {
+        return i;
+      }
+    }
+  }
+  return -1;
 }

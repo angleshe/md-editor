@@ -7,7 +7,7 @@ import {
 } from './closestBlock';
 import { input } from '../ir/input';
 import { isOnlyTouchEnter, matchHotKey } from './eventUtils';
-import { insertRow } from './tableUtils';
+import { insertRow, insertCol } from './tableUtils';
 import { setRangeByWbr } from './selection';
 
 /**
@@ -78,7 +78,6 @@ export function fixCodeBlock(editor: IEditor, event: KeyboardEvent, range: Range
 export function fixTable(editor: IEditor, event: KeyboardEvent, range: Range): boolean {
   const tableElement = getClosestBlock(range.startContainer);
   if (tableElement) {
-    console.log(tableElement);
     // enter自动补全
     if (isOnlyTouchEnter(event)) {
       const tableText: string = tableElement.textContent?.trim() ?? '';
@@ -106,6 +105,14 @@ export function fixTable(editor: IEditor, event: KeyboardEvent, range: Range): b
           insertRow(cellsElement);
         }
         setRangeByWbr(tableElement, range);
+        event.preventDefault();
+        return true;
+      }
+      if (matchHotKey('⌘-⇧-Enter', event)) {
+        const cellsElement = getClosestElement(range.startContainer);
+        if (cellsElement) {
+          insertCol(cellsElement, 'after');
+        }
         event.preventDefault();
         return true;
       }
