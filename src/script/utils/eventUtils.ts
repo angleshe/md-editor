@@ -46,8 +46,8 @@ export function matchHotKey(
   const hasShift: boolean = hotkeys.some((value) => value === 'shift' || value === '⇧');
   return (
     key.toLocaleLowerCase() === event.key.toLocaleLowerCase() &&
-    (!hasCtrl || isTouchCtrlKey(event)) &&
-    (!hasAlt || event.altKey) &&
-    (!hasShift || event.shiftKey)
+    ((hasCtrl && isTouchCtrlKey(event)) || (!hasCtrl && !isTouchCtrlKey(event))) &&
+    ((hasAlt && event.altKey) || (!hasAlt && !event.altKey)) &&
+    ((hasShift && event.shiftKey) || (!hasShift && !event.shiftKey))
   );
 }
