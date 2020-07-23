@@ -151,7 +151,7 @@ export function getIndexByParents(element: HTMLElement): number {
   const parentElement = element.parentElement;
   if (parentElement) {
     for (let i: number = 0; i < parentElement.childElementCount; i++) {
-      if (parentElement.children[i].isEqualNode(element)) {
+      if (parentElement.children[i] === element) {
         return i;
       }
     }

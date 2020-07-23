@@ -48,11 +48,17 @@ export function setRangeByWbr(element: HTMLElement, range: Range): void {
   }
 }
 
-export function setRangeByElement(
-  element: HTMLElement,
-  range: Range,
-  position: 'before' | 'after' = 'before'
-): void {
-  range.selectNode(element);
+/**
+ * @description 设置光标进element里面
+ * @author angle
+ * @date 2020-07-22
+ * @export
+ * @param {Element} element
+ * @param {('before' | 'after')} [position='before'] 光标的位置: before: 在element内容的开头 after: 在element内容的结尾
+ */
+export function setRangeByElement(element: Element, position: 'before' | 'after' = 'before'): void {
+  const range = document.createRange();
+  range.selectNodeContents(element);
   range.collapse(position === 'before');
+  setSelectionFocus(range);
 }

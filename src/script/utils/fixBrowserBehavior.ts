@@ -7,8 +7,13 @@ import {
 } from './closestBlock';
 import { input } from '../ir/input';
 import { isOnlyTouchEnter, matchHotKey } from './eventUtils';
-import { insertRow, insertCol } from './tableUtils';
-import { setRangeByWbr } from './selection';
+import { insertRow, insertCol, findTableCellsElement } from './tableUtils';
+import { setRangeByWbr, setRangeByElement } from './selection';
+import { getIndexByParents } from './domUtils';
+
+function isTableElement(element: HTMLElement): element is HTMLTableElement {
+  return element.tagName.toLocaleLowerCase() === 'table';
+}
 
 /**
  * @description 修复code语言
@@ -75,6 +80,7 @@ export function fixCodeBlock(editor: IEditor, event: KeyboardEvent, range: Range
  * @param {Range} range
  * @returns {boolean}
  */
+// eslint-disable-next-line complexity
 export function fixTable(editor: IEditor, event: KeyboardEvent, range: Range): boolean {
   const tableElement = getClosestBlock(range.startContainer);
   if (tableElement) {
@@ -98,23 +104,83 @@ export function fixTable(editor: IEditor, event: KeyboardEvent, range: Range): b
       }
     }
     // table快捷键
-    if (tableElement.tagName.toLocaleLowerCase() === 'table') {
+    if (isTableElement(tableElement)) {
+      // 向添加一行
       if (matchHotKey('⌘-Enter', event)) {
-        const cellsElement = getClosestElement(range.startContainer);
-        if (cellsElement) {
-          insertRow(cellsElement);
+        const rangeElement = getClosestElement(range.startContainer);
+        if (rangeElement) {
+          insertRow(rangeElement);
         }
         setRangeByWbr(tableElement, range);
         event.preventDefault();
         return true;
       }
+      // 向右添加一列
       if (matchHotKey('⌘-⇧-Enter', event)) {
-        const cellsElement = getClosestElement(range.startContainer);
-        if (cellsElement) {
-          insertCol(cellsElement, 'after');
+        const rangeElement = getClosestElement(range.startContainer);
+        if (rangeElement) {
+          insertCol(rangeElement, 'after');
         }
         event.preventDefault();
         return true;
+      }
+      // 上/下方向键切换光标
+      if (event.code === 'ArrowUp' || event.code === 'ArrowDown') {
+        const rangeElement = getClosestElement(range.startContainer);
+        if (rangeElement) {
+          const cellElement = findTableCellsElement(rangeElement);
+          if (cellElement) {
+            let targetElement: Element | null = null;
+            // 当前光标在表头
+            if (cellElement.tagName.toLocaleLowerCase() === 'th') {
+              // 上边界
+              if (event.code === 'ArrowUp') {
+                targetElement = tableElement.previousElementSibling;
+              }
+              // 下边界 有表体
+              else if (tableElement.rows.length > 1) {
+                const index: number = getIndexByParents(cellElement);
+                targetElement = tableElement.rows[1].children[index];
+              }
+              // 下边界 没有表体
+              else {
+                targetElement = tableElement.nextElementSibling;
+              }
+            }
+            // 当前光标在表体
+            else {
+              // 上边界
+              if (event.code === 'ArrowUp' && !cellElement.parentElement?.previousElementSibling) {
+                const index: number = getIndexByParents(cellElement);
+                const thElementArr = tableElement.querySelectorAll<'th'>('th');
+                targetElement = thElementArr[index];
+              }
+              // 下边界
+              else if (
+                event.code === 'ArrowDown' &&
+                !cellElement.parentElement?.nextElementSibling
+              ) {
+                targetElement = tableElement.nextElementSibling;
+              }
+              // 表体
+              else {
+                const targetParent: Element | null =
+                  (event.code === 'ArrowUp'
+                    ? cellElement.parentElement?.previousElementSibling
+                    : cellElement.parentElement?.nextElementSibling) ?? null;
+                if (targetParent) {
+                  const index: number = getIndexByParents(cellElement);
+                  targetElement = targetParent.children[index];
+                }
+              }
+            }
+            if (targetElement) {
+              setRangeByElement(targetElement, 'after');
+            }
+            event.preventDefault();
+            return true;
+          }
+        }
       }
     }
   }

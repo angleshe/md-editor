@@ -20,7 +20,7 @@ export function input(editor: IEditor, range: Range): void {
   //
   if (editor.ir && editor.ir.contentDom && editor.ir.contentDom.innerHTML) {
     let content: string;
-    if (closestBlock && !closestBlock.isEqualNode(editor.ir.contentDom)) {
+    if (closestBlock && closestBlock !== editor.ir.contentDom) {
       content = closestBlock.outerHTML;
     } else {
       content = editor.ir.contentDom.innerHTML;
@@ -39,7 +39,7 @@ export function input(editor: IEditor, range: Range): void {
     //
     log('ir/input', html, '渲染内容', editor.options.debugger);
     //
-    if (closestBlock && !closestBlock.isEqualNode(editor.ir.contentDom)) {
+    if (closestBlock && closestBlock !== editor.ir.contentDom) {
       closestBlock.outerHTML = html;
     } else {
       editor.ir.contentDom.innerHTML = html;
