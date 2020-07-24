@@ -1,0 +1,30 @@
+.modalContainer {
+  .mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9990;
+    display: none;
+    background-color: rgba(#000, 0.3);
+    &.active {
+      display: block;
+    }
+    &.tableMenuMask {
+      background-color: transparent;
+    }
+  }
+  .modal {
+    position: fixed;
+    z-index: 9991;
+    display: none;
+    padding: 10px 0;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.31);
+    &.active {
+      display: block;
+    }
+  }
+}
