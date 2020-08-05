@@ -1,0 +1,965 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ModalBase | md-editor</title>
+	<meta name="description" content="Documentation for md-editor">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">md-editor</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_src_script_ui_modal_modalbase_.html">&quot;src/script/ui/modal/ModalBase&quot;</a>
+				</li>
+				<li>
+					<a href="_src_script_ui_modal_modalbase_.modalbase.html">ModalBase</a>
+				</li>
+			</ul>
+			<h1>Class ModalBase</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<dl class="tsd-comment-tags">
+						<dt>description</dt>
+						<dd><p>模态基类</p>
+						</dd>
+						<dt>author</dt>
+						<dd><p>angle</p>
+						</dd>
+						<dt>date</dt>
+						<dd><p>2020-07-24</p>
+						</dd>
+						<dt>abstract</dt>
+						<dd></dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ModalBase</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="_src_script_ui_modal_tablemenu_.tablemenu.html" class="tsd-signature-type">TableMenu</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_src_script_ui_modal_modalbase_.modalbase.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_src_script_ui_modal_modalbase_.modalbase.html#modalelement" class="tsd-kind-icon">modal<wbr>Element</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_src_script_ui_modal_modalbase_.modalbase.html#options" class="tsd-kind-icon">options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="_src_script_ui_modal_modalbase_.modalbase.html#type_menu_item" class="tsd-kind-icon">TYPE_<wbr>MENU_<wbr>ITEM</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="_src_script_ui_modal_modalbase_.modalbase.html#maskelement" class="tsd-kind-icon">mask<wbr>Element</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="_src_script_ui_modal_modalbase_.modalbase.html#modalcontainerelement" class="tsd-kind-icon">modal<wbr>Container<wbr>Element</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="_src_script_ui_modal_modalbase_.modalbase.html#showmodal" class="tsd-kind-icon">show<wbr>Modal</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_script_ui_modal_modalbase_.modalbase.html#bind" class="tsd-kind-icon">bind</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_src_script_ui_modal_modalbase_.modalbase.html#contentrender" class="tsd-kind-icon">content<wbr>Render</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_script_ui_modal_modalbase_.modalbase.html#createmask" class="tsd-kind-icon">create<wbr>Mask</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected"><a href="_src_script_ui_modal_modalbase_.modalbase.html#createdmenuitem" class="tsd-kind-icon">created<wbr>Menu<wbr>Item</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_script_ui_modal_modalbase_.modalbase.html#createdmodal" class="tsd-kind-icon">created<wbr>Modal</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_script_ui_modal_modalbase_.modalbase.html#createdmodalcontainer" class="tsd-kind-icon">created<wbr>Modal<wbr>Container</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_src_script_ui_modal_modalbase_.modalbase.html#hide" class="tsd-kind-icon">hide</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_script_ui_modal_modalbase_.modalbase.html#initmodal" class="tsd-kind-icon">init<wbr>Modal</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_src_script_ui_modal_modalbase_.modalbase.html#menuitemclickhandler" class="tsd-kind-icon">menu<wbr>Item<wbr>Click<wbr>Handler</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_script_ui_modal_modalbase_.modalbase.html#mousedownhandler" class="tsd-kind-icon">mousedown<wbr>Handler</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_src_script_ui_modal_modalbase_.modalbase.html#show" class="tsd-kind-icon">show</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_script_ui_modal_modalbase_.modalbase.html#unbind" class="tsd-kind-icon">un<wbr>Bind</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Modal<wbr>Base<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_script_ui_modal_modalbase_.imodalbaseoptions.html" class="tsd-signature-type">IModalBaseOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_src_script_ui_modal_modalbase_.modalbase.html" class="tsd-signature-type">ModalBase</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L130">src/script/ui/modal/ModalBase.ts:130</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>options: <a href="../interfaces/_src_script_ui_modal_modalbase_.imodalbaseoptions.html" class="tsd-signature-type">IModalBaseOptions</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_src_script_ui_modal_modalbase_.modalbase.html" class="tsd-signature-type">ModalBase</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="modalelement" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> modal<wbr>Element</h3>
+					<div class="tsd-signature tsd-kind-icon">modal<wbr>Element<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLDivElement</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L130">src/script/ui/modal/ModalBase.ts:130</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>description</dt>
+							<dd><p>模态面板节点</p>
+							</dd>
+							<dt>memberof</dt>
+							<dd><p>ModalBase</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="options" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> options</h3>
+					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_src_script_ui_modal_modalbase_.imodalbaseoptions.html" class="tsd-signature-type">IModalBaseOptions</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L123">src/script/ui/modal/ModalBase.ts:123</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>description</dt>
+							<dd><p>配置项</p>
+							</dd>
+							<dt>memberof</dt>
+							<dd><p>ModalBase</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+					<a name="type_menu_item" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> TYPE_<wbr>MENU_<wbr>ITEM</h3>
+					<div class="tsd-signature tsd-kind-icon">TYPE_<wbr>MENU_<wbr>ITEM<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;menu-item&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L115">src/script/ui/modal/ModalBase.ts:115</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+					<a name="maskelement" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> mask<wbr>Element</h3>
+					<div class="tsd-signature tsd-kind-icon">mask<wbr>Element<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLDivElement</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L105">src/script/ui/modal/ModalBase.ts:105</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>description</dt>
+							<dd><p>遮罩层节点</p>
+							</dd>
+							<dt>static</dt>
+							<dd></dd>
+							<dt>memberof</dt>
+							<dd><p>ModalBase</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+					<a name="modalcontainerelement" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> modal<wbr>Container<wbr>Element</h3>
+					<div class="tsd-signature tsd-kind-icon">modal<wbr>Container<wbr>Element<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLDivElement</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L97">src/script/ui/modal/ModalBase.ts:97</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>description</dt>
+							<dd><p>模态容器, 模态面板的父节点</p>
+							</dd>
+							<dt>static</dt>
+							<dd></dd>
+							<dt>memberof</dt>
+							<dd><p>ModalBase</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+					<a name="showmodal" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> show<wbr>Modal</h3>
+					<div class="tsd-signature tsd-kind-icon">show<wbr>Modal<span class="tsd-signature-symbol">:</span> <a href="_src_script_ui_modal_modalbase_.modalbase.html" class="tsd-signature-type">ModalBase</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> = null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L113">src/script/ui/modal/ModalBase.ts:113</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>description</dt>
+							<dd><p>当前显示的模态对象,同一时间内最多只能有一个模态显示出来</p>
+							</dd>
+							<dt>static</dt>
+							<dd></dd>
+							<dt>memberof</dt>
+							<dd><p>ModalBase</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="bind" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> bind</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">bind<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L275">src/script/ui/modal/ModalBase.ts:275</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>版定事件</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>ModalBase</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="contentrender" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> <span class="tsd-flag ts-flagAbstract">Abstract</span> content<wbr>Render</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">content<wbr>Render<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L151">src/script/ui/modal/ModalBase.ts:151</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>模态面板内容渲染函数</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>abstract</dt>
+									<dd></dd>
+									<dt>memberof</dt>
+									<dd><p>ModalBase</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span></h4>
+							<p>内容的html/节点</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="createmask" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> create<wbr>Mask</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Mask<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLDivElement</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L234">src/script/ui/modal/ModalBase.ts:234</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>创建遮罩节点</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>ModalBase</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLDivElement</span></h4>
+							<p>遮罩节点</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected">
+					<a name="createdmenuitem" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> created<wbr>Menu<wbr>Item</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">created<wbr>Menu<wbr>Item<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_script_ui_modal_modalbase_.imenuitem.html" class="tsd-signature-type">IMenuItem</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLDivElement</span></li>
+						<li class="tsd-signature tsd-kind-icon">created<wbr>Menu<wbr>Item&lt;K&gt;<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_script_ui_modal_modalbase_.imenuitem.html" class="tsd-signature-type">IMenuItem</a>, tagName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElementTagNameMap</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L335">src/script/ui/modal/ModalBase.ts:335</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>创建菜单项</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>ModalBase</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>item: <a href="../interfaces/_src_script_ui_modal_modalbase_.imenuitem.html" class="tsd-signature-type">IMenuItem</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>数据项</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLDivElement</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L348">src/script/ui/modal/ModalBase.ts:348</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>创建菜单项</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>ModalBase</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">HTMLElementTagNameMap</span></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>item: <a href="../interfaces/_src_script_ui_modal_modalbase_.imenuitem.html" class="tsd-signature-type">IMenuItem</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>数据项</p>
+									</div>
+								</li>
+								<li>
+									<h5>tagName: <span class="tsd-signature-type">K</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>标签名</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLElementTagNameMap</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="createdmodal" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> created<wbr>Modal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">created<wbr>Modal<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLDivElement</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L250">src/script/ui/modal/ModalBase.ts:250</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>创建面板</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>ModalBase</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLDivElement</span></h4>
+							<p>面板节点</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="createdmodalcontainer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> created<wbr>Modal<wbr>Container</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">created<wbr>Modal<wbr>Container<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLDivElement</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L218">src/script/ui/modal/ModalBase.ts:218</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>创建模态容器节点</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>ModalBase</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLDivElement</span></h4>
+							<p>容器节点</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="hide" class="tsd-anchor"></a>
+					<h3>hide</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">hide<span class="tsd-signature-symbol">(</span>isCloseMask<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L186">src/script/ui/modal/ModalBase.ts:186</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>面板关闭</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>ModalBase</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> isCloseMask: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="initmodal" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> init<wbr>Modal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">init<wbr>Modal<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L204">src/script/ui/modal/ModalBase.ts:204</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>初始化模态的基础结构</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>ModalBase</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="menuitemclickhandler" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> menu<wbr>Item<wbr>Click<wbr>Handler</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">menu<wbr>Item<wbr>Click<wbr>Handler<span class="tsd-signature-symbol">(</span>_key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L393">src/script/ui/modal/ModalBase.ts:393</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>菜单点击事件,子类可重写实现</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>ModalBase</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="mousedownhandler" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> mousedown<wbr>Handler</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">mousedown<wbr>Handler<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MouseEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L306">src/script/ui/modal/ModalBase.ts:306</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>点击事件</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>ModalBase</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">MouseEvent</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="show" class="tsd-anchor"></a>
+					<h3>show</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">show<span class="tsd-signature-symbol">(</span>position<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_script_ui_modal_modalbase_.iposition.html" class="tsd-signature-type">IPosition</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L160">src/script/ui/modal/ModalBase.ts:160</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>面板显示</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>ModalBase</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>position: <a href="../interfaces/_src_script_ui_modal_modalbase_.iposition.html" class="tsd-signature-type">IPosition</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>显示位置</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="unbind" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> un<wbr>Bind</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">un<wbr>Bind<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ui/modal/ModalBase.ts#L290">src/script/ui/modal/ModalBase.ts:290</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>取消节点版定</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>ModalBase</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_index_.html">&quot;src/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_lib_lute_min_.html">&quot;src/lib/lute.min&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_options_.html">&quot;src/script/<wbr>Options&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_ir_index_.html">&quot;src/script/ir/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_ir_input_.html">&quot;src/script/ir/input&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_ir_processkeydown_.html">&quot;src/script/ir/process<wbr>Keydown&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_ir_processmousedown_.html">&quot;src/script/ir/process<wbr>Mousedown&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_markdown_lute_.html">&quot;src/script/markdown/lute&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_ui_index_.html">&quot;src/script/ui/index&quot;</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_src_script_ui_modal_modalbase_.html">&quot;src/script/ui/modal/<wbr>Modal<wbr>Base&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_ui_modal_tablemenu_.html">&quot;src/script/ui/modal/<wbr>Table<wbr>Menu&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_utils_addpublicres_.html">&quot;src/script/utils/add<wbr>Public<wbr>Res&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_utils_closestblock_.html">&quot;src/script/utils/closest<wbr>Block&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_utils_decorators_.html">&quot;src/script/utils/decorators&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_utils_domutils_.html">&quot;src/script/utils/dom<wbr>Utils&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_utils_eventutils_.html">&quot;src/script/utils/event<wbr>Utils&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_utils_fixbrowserbehavior_.html">&quot;src/script/utils/fix<wbr>Browser<wbr>Behavior&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_utils_log_.html">&quot;src/script/utils/log&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_utils_selection_.html">&quot;src/script/utils/selection&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_utils_tableutils_.html">&quot;src/script/utils/table<wbr>Utils&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_utils_utils_.html">&quot;src/script/utils/utils&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module">
+						<a href="_src_script_ui_modal_modalbase_.modalbase.html" class="tsd-kind-icon">Modal<wbr>Base</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#modalelement" class="tsd-kind-icon">modal<wbr>Element</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#options" class="tsd-kind-icon">options</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#type_menu_item" class="tsd-kind-icon">TYPE_<wbr>MENU_<wbr>ITEM</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#maskelement" class="tsd-kind-icon">mask<wbr>Element</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#modalcontainerelement" class="tsd-kind-icon">modal<wbr>Container<wbr>Element</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#showmodal" class="tsd-kind-icon">show<wbr>Modal</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#bind" class="tsd-kind-icon">bind</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#contentrender" class="tsd-kind-icon">content<wbr>Render</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#createmask" class="tsd-kind-icon">create<wbr>Mask</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#createdmenuitem" class="tsd-kind-icon">created<wbr>Menu<wbr>Item</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#createdmodal" class="tsd-kind-icon">created<wbr>Modal</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#createdmodalcontainer" class="tsd-kind-icon">created<wbr>Modal<wbr>Container</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#hide" class="tsd-kind-icon">hide</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#initmodal" class="tsd-kind-icon">init<wbr>Modal</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#menuitemclickhandler" class="tsd-kind-icon">menu<wbr>Item<wbr>Click<wbr>Handler</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#mousedownhandler" class="tsd-kind-icon">mousedown<wbr>Handler</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#show" class="tsd-kind-icon">show</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_src_script_ui_modal_modalbase_.modalbase.html#unbind" class="tsd-kind-icon">un<wbr>Bind</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_src_script_ui_modal_modalbase_.imenuitem.html" class="tsd-kind-icon">IMenu<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_src_script_ui_modal_modalbase_.imodalbaseoptions.html" class="tsd-kind-icon">IModal<wbr>Base<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_src_script_ui_modal_modalbase_.iposition.html" class="tsd-kind-icon">IPosition</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -71,6 +71,7 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_script_utils_domutils_.html#addclass" class="tsd-kind-icon">add<wbr>Class</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_src_script_utils_domutils_.html#findparentelement" class="tsd-kind-icon">find<wbr>Parent<wbr>Element</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_script_utils_domutils_.html#getindexbyparents" class="tsd-kind-icon">get<wbr>Index<wbr>ByParents</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_script_utils_domutils_.html#hasclass" class="tsd-kind-icon">has<wbr>Class</a></li>
@@ -83,6 +84,149 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="addclass" class="tsd-anchor"></a>
+					<h3>add<wbr>Class</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Class<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, className<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Class<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, classNames<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Class<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, classNameObj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Class<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, classItem<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/domUtils.ts#L170">src/script/utils/domUtils.ts:170</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>添加class name</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>export</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>element: <span class="tsd-signature-type">HTMLElement</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>目标节点</p>
+									</div>
+								</li>
+								<li>
+									<h5>className: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>class name</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/domUtils.ts#L179">src/script/utils/domUtils.ts:179</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>添加class name</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>export</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>element: <span class="tsd-signature-type">HTMLElement</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>目标节点</p>
+									</div>
+								</li>
+								<li>
+									<h5>classNames: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>class name数组</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/domUtils.ts#L191">src/script/utils/domUtils.ts:191</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>添加class name</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>export</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>element: <span class="tsd-signature-type">HTMLElement</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>目标节点</p>
+									</div>
+								</li>
+								<li>
+									<h5>classNameObj: <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>class name对象</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/domUtils.ts#L193">src/script/utils/domUtils.ts:193</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>element: <span class="tsd-signature-type">HTMLElement</span></h5>
+								</li>
+								<li>
+									<h5>classItem: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="findparentelement" class="tsd-anchor"></a>
 					<h3>find<wbr>Parent<wbr>Element</h3>
@@ -96,7 +240,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/utils/domUtils.ts#L13">src/script/utils/domUtils.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/domUtils.ts#L13">src/script/utils/domUtils.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -162,7 +306,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/utils/domUtils.ts#L29">src/script/utils/domUtils.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/domUtils.ts#L29">src/script/utils/domUtils.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -252,7 +396,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/utils/domUtils.ts#L46">src/script/utils/domUtils.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/domUtils.ts#L46">src/script/utils/domUtils.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -324,7 +468,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/utils/domUtils.ts#L64">src/script/utils/domUtils.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/domUtils.ts#L64">src/script/utils/domUtils.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -429,7 +573,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/utils/domUtils.ts#L150">src/script/utils/domUtils.ts:150</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/domUtils.ts#L150">src/script/utils/domUtils.ts:150</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -467,7 +611,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/utils/domUtils.ts#L127">src/script/utils/domUtils.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/domUtils.ts#L127">src/script/utils/domUtils.ts:127</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -508,7 +652,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/utils/domUtils.ts#L138">src/script/utils/domUtils.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/domUtils.ts#L138">src/script/utils/domUtils.ts:138</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -540,7 +684,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/utils/domUtils.ts#L112">src/script/utils/domUtils.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/domUtils.ts#L112">src/script/utils/domUtils.ts:112</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -604,10 +748,19 @@
 						<a href="_src_script_ir_processkeydown_.html">&quot;src/script/ir/process<wbr>Keydown&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="_src_script_ir_processmousedown_.html">&quot;src/script/ir/process<wbr>Mousedown&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="_src_script_markdown_lute_.html">&quot;src/script/markdown/lute&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_src_script_ui_index_.html">&quot;src/script/ui/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_src_script_ui_modal_modalbase_.html">&quot;src/script/ui/modal/<wbr>Modal<wbr>Base&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_src_script_ui_modal_tablemenu_.html">&quot;src/script/ui/modal/<wbr>Table<wbr>Menu&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_src_script_utils_addpublicres_.html">&quot;src/script/utils/add<wbr>Public<wbr>Res&quot;</a>
@@ -643,6 +796,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_src_script_utils_domutils_.html#addclass" class="tsd-kind-icon">add<wbr>Class</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_src_script_utils_domutils_.html#findparentelement" class="tsd-kind-icon">find<wbr>Parent<wbr>Element</a>
 					</li>
@@ -672,6 +828,9 @@
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>

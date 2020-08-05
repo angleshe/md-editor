@@ -71,6 +71,7 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_script_utils_selection_.html#getrange" class="tsd-kind-icon">get<wbr>Range</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_script_utils_selection_.html#setrangebyelement" class="tsd-kind-icon">set<wbr>Range<wbr>ByElement</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_script_utils_selection_.html#setrangebywbr" class="tsd-kind-icon">set<wbr>Range<wbr>ByWbr</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_script_utils_selection_.html#setselectionfocus" class="tsd-kind-icon">set<wbr>Selection<wbr>Focus</a></li>
@@ -82,25 +83,69 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="setrangebyelement" class="tsd-anchor"></a>
-					<h3>set<wbr>Range<wbr>ByElement</h3>
+					<a name="getrange" class="tsd-anchor"></a>
+					<h3>get<wbr>Range</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Range<wbr>ByElement<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, range<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Range</span>, position<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">"before"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"after"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Range<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Range</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/utils/selection.ts#L51">src/script/utils/selection.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/selection.ts#L73">src/script/utils/selection.ts:73</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>获取range</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-29</p>
+									</dd>
+									<dt>export</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Range</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="setrangebyelement" class="tsd-anchor"></a>
+					<h3>set<wbr>Range<wbr>ByElement</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Range<wbr>ByElement<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span>, position<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">"before"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"after"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/selection.ts#L59">src/script/utils/selection.ts:59</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>设置光标进element里面</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-22</p>
+									</dd>
+									<dt>export</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>element: <span class="tsd-signature-type">HTMLElement</span></h5>
-								</li>
-								<li>
-									<h5>range: <span class="tsd-signature-type">Range</span></h5>
+									<h5>element: <span class="tsd-signature-type">Element</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> position: <span class="tsd-signature-type">"before"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"after"</span><span class="tsd-signature-symbol"> = &quot;before&quot;</span></h5>
@@ -120,7 +165,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/utils/selection.ts#L23">src/script/utils/selection.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/selection.ts#L23">src/script/utils/selection.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -163,7 +208,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/utils/selection.ts#L8">src/script/utils/selection.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/utils/selection.ts#L8">src/script/utils/selection.ts:8</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -219,10 +264,19 @@
 						<a href="_src_script_ir_processkeydown_.html">&quot;src/script/ir/process<wbr>Keydown&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="_src_script_ir_processmousedown_.html">&quot;src/script/ir/process<wbr>Mousedown&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="_src_script_markdown_lute_.html">&quot;src/script/markdown/lute&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_src_script_ui_index_.html">&quot;src/script/ui/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_src_script_ui_modal_modalbase_.html">&quot;src/script/ui/modal/<wbr>Modal<wbr>Base&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_src_script_ui_modal_tablemenu_.html">&quot;src/script/ui/modal/<wbr>Table<wbr>Menu&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_src_script_utils_addpublicres_.html">&quot;src/script/utils/add<wbr>Public<wbr>Res&quot;</a>
@@ -259,6 +313,9 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_src_script_utils_selection_.html#getrange" class="tsd-kind-icon">get<wbr>Range</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_src_script_utils_selection_.html#setrangebyelement" class="tsd-kind-icon">set<wbr>Range<wbr>ByElement</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
@@ -281,6 +338,9 @@
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>

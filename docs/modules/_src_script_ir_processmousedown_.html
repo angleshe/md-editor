@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;src/script/Options&quot; | md-editor</title>
+	<title>&quot;src/script/ir/processMousedown&quot; | md-editor</title>
 	<meta name="description" content="Documentation for md-editor">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_src_script_options_.html">&quot;src/script/Options&quot;</a>
+					<a href="_src_script_ir_processmousedown_.html">&quot;src/script/ir/processMousedown&quot;</a>
 				</li>
 			</ul>
-			<h1>Module &quot;src/script/Options&quot;</h1>
+			<h1>Module &quot;src/script/ir/processMousedown&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -69,40 +69,100 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Classes</h3>
+							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-module"><a href="../classes/_src_script_options_.options.html" class="tsd-kind-icon">Options</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported"><a href="../interfaces/_src_script_options_.ihint.html" class="tsd-kind-icon">IHint</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported"><a href="../interfaces/_src_script_options_.imath.html" class="tsd-kind-icon">IMath</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_src_script_options_.ioptions.html" class="tsd-kind-icon">IOptions</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported"><a href="../interfaces/_src_script_options_.ipreview.html" class="tsd-kind-icon">IPreview</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Type aliases</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_src_script_options_.html#elementtype" class="tsd-kind-icon">Element<wbr>Type</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_script_ir_processmousedown_.html#processmousedown" class="tsd-kind-icon">process<wbr>Mousedown</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_src_script_ir_processmousedown_.html#rightmousedown" class="tsd-kind-icon">right<wbr>Mousedown</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="elementtype" class="tsd-anchor"></a>
-					<h3>Element<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Element<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/Options.ts#L4">src/script/Options.ts:4</a></li>
-						</ul>
-					</aside>
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="processmousedown" class="tsd-anchor"></a>
+					<h3>process<wbr>Mousedown</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">process<wbr>Mousedown<span class="tsd-signature-symbol">(</span>editor<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_index_.ieditor.html" class="tsd-signature-type">IEditor</a>, event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MouseEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ir/processMousedown.ts#L40">src/script/ir/processMousedown.ts:40</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>鼠标点击事件处理</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+									<dt>export</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>editor: <a href="../interfaces/_src_index_.ieditor.html" class="tsd-signature-type">IEditor</a></h5>
+								</li>
+								<li>
+									<h5>event: <span class="tsd-signature-type">MouseEvent</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+					<a name="rightmousedown" class="tsd-anchor"></a>
+					<h3>right<wbr>Mousedown</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">right<wbr>Mousedown<span class="tsd-signature-symbol">(</span>editor<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_index_.ieditor.html" class="tsd-signature-type">IEditor</a>, event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MouseEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ir/processMousedown.ts#L12">src/script/ir/processMousedown.ts:12</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>鼠标右键点击</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-24</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>editor: <a href="../interfaces/_src_index_.ieditor.html" class="tsd-signature-type">IEditor</a></h5>
+								</li>
+								<li>
+									<h5>event: <span class="tsd-signature-type">MouseEvent</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -118,7 +178,7 @@
 					<li class=" tsd-kind-module">
 						<a href="_src_lib_lute_min_.html">&quot;src/lib/lute.min&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="_src_script_options_.html">&quot;src/script/<wbr>Options&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -130,7 +190,7 @@
 					<li class=" tsd-kind-module">
 						<a href="_src_script_ir_processkeydown_.html">&quot;src/script/ir/process<wbr>Keydown&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="_src_script_ir_processmousedown_.html">&quot;src/script/ir/process<wbr>Mousedown&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -179,23 +239,11 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_src_script_options_.options.html" class="tsd-kind-icon">Options</a>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_src_script_ir_processmousedown_.html#processmousedown" class="tsd-kind-icon">process<wbr>Mousedown</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../interfaces/_src_script_options_.ihint.html" class="tsd-kind-icon">IHint</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../interfaces/_src_script_options_.imath.html" class="tsd-kind-icon">IMath</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_src_script_options_.ioptions.html" class="tsd-kind-icon">IOptions</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../interfaces/_src_script_options_.ipreview.html" class="tsd-kind-icon">IPreview</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="_src_script_options_.html#elementtype" class="tsd-kind-icon">Element<wbr>Type</a>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_src_script_ir_processmousedown_.html#rightmousedown" class="tsd-kind-icon">right<wbr>Mousedown</a>
 					</li>
 				</ul>
 			</nav>

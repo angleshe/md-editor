@@ -96,9 +96,11 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_script_ir_index_.ir.html#bind" class="tsd-kind-icon">bind</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_script_ir_index_.ir.html#contextmenuhandler" class="tsd-kind-icon">contextmenu<wbr>Handler</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_src_script_ir_index_.ir.html#hide" class="tsd-kind-icon">hide</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_script_ir_index_.ir.html#inputhandler" class="tsd-kind-icon">input<wbr>Handler</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_script_ir_index_.ir.html#keydownhandler" class="tsd-kind-icon">keydown<wbr>Handler</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_script_ir_index_.ir.html#mousedownhandler" class="tsd-kind-icon">mousedown<wbr>Handler</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_script_ir_index_.ir.html#render" class="tsd-kind-icon">render</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_src_script_ir_index_.ir.html#show" class="tsd-kind-icon">show</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_script_ir_index_.ir.html#unbind" class="tsd-kind-icon">unbind</a></li>
@@ -119,7 +121,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/ir/index.ts#L10">src/script/ir/index.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ir/index.ts#L11">src/script/ir/index.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -141,7 +143,7 @@
 					<div class="tsd-signature tsd-kind-icon">content<wbr>Dom<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLPreElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/ir/index.ts#L10">src/script/ir/index.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ir/index.ts#L11">src/script/ir/index.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -151,7 +153,7 @@
 					<div class="tsd-signature tsd-kind-icon">editor<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_src_index_.ieditor.html" class="tsd-signature-type">IEditor</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/ir/index.ts#L8">src/script/ir/index.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ir/index.ts#L9">src/script/ir/index.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -168,9 +170,48 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/ir/index.ts#L26">src/script/ir/index.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ir/index.ts#L27">src/script/ir/index.ts:27</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="contextmenuhandler" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> contextmenu<wbr>Handler</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">contextmenu<wbr>Handler<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MouseEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ir/index.ts#L94">src/script/ir/index.ts:94</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>屏蔽鼠标右键菜单</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-23</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>IR</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">MouseEvent</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -185,7 +226,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/ir/index.ts#L72">src/script/ir/index.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ir/index.ts#L103">src/script/ir/index.ts:103</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -202,7 +243,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/ir/index.ts#L46">src/script/ir/index.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ir/index.ts#L51">src/script/ir/index.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -237,7 +278,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/ir/index.ts#L63">src/script/ir/index.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ir/index.ts#L68">src/script/ir/index.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -267,6 +308,45 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="mousedownhandler" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> mousedown<wbr>Handler</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">mousedown<wbr>Handler<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MouseEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ir/index.ts#L81">src/script/ir/index.ts:81</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>鼠标事件</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-07-23</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>IR</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">MouseEvent</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="render" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> render</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
@@ -276,7 +356,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/ir/index.ts#L18">src/script/ir/index.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ir/index.ts#L19">src/script/ir/index.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -293,7 +373,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/ir/index.ts#L67">src/script/ir/index.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ir/index.ts#L98">src/script/ir/index.ts:98</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -310,7 +390,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/12e821c/src/script/ir/index.ts#L32">src/script/ir/index.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/15521f3/src/script/ir/index.ts#L35">src/script/ir/index.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -344,10 +424,19 @@
 						<a href="../modules/_src_script_ir_processkeydown_.html">&quot;src/script/ir/process<wbr>Keydown&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_ir_processmousedown_.html">&quot;src/script/ir/process<wbr>Mousedown&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="../modules/_src_script_markdown_lute_.html">&quot;src/script/markdown/lute&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_script_ui_index_.html">&quot;src/script/ui/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_ui_modal_modalbase_.html">&quot;src/script/ui/modal/<wbr>Modal<wbr>Base&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_ui_modal_tablemenu_.html">&quot;src/script/ui/modal/<wbr>Table<wbr>Menu&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_script_utils_addpublicres_.html">&quot;src/script/utils/add<wbr>Public<wbr>Res&quot;</a>
@@ -400,6 +489,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="_src_script_ir_index_.ir.html#bind" class="tsd-kind-icon">bind</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_src_script_ir_index_.ir.html#contextmenuhandler" class="tsd-kind-icon">contextmenu<wbr>Handler</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_src_script_ir_index_.ir.html#hide" class="tsd-kind-icon">hide</a>
 							</li>
@@ -408,6 +500,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="_src_script_ir_index_.ir.html#keydownhandler" class="tsd-kind-icon">keydown<wbr>Handler</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_src_script_ir_index_.ir.html#mousedownhandler" class="tsd-kind-icon">mousedown<wbr>Handler</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="_src_script_ir_index_.ir.html#render" class="tsd-kind-icon">render</a>
@@ -446,6 +541,9 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
