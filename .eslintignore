@@ -1,6 +1,7 @@
 # production
 /dist
 /src/lib
+/src/res
 /.vscode
 /node_modules/
 /.eslintrc.js
