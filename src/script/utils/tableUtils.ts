@@ -158,3 +158,22 @@ export function deleteCol(targetElement: HTMLElement): void {
 export function deleteTable(targetElement: HTMLElement): void {
   findTableElement(targetElement)?.remove();
 }
+
+/**
+ * @description 设置列内容的对齐方式
+ * @author angle
+ * @date 2020-08-05
+ * @export
+ * @param {HTMLElement} targetElement
+ * @param {('left' | 'center' | 'right')} align 对齐方式 left: 居左, center: 居中, right: 居右
+ */
+export function setColAlign(targetElement: HTMLElement, align: 'left' | 'center' | 'right'): void {
+  const cellElement = findTableCellsElement(targetElement);
+  const tableElement = findTableElement(targetElement);
+  if (cellElement && tableElement) {
+    const index: number = getIndexByParents(cellElement);
+    for (let i: number = 0; i < tableElement.rows.length; i++) {
+      (tableElement.rows[i].children[index] as HTMLTableCellElement).align = align;
+    }
+  }
+}

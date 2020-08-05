@@ -8,7 +8,8 @@ import {
   findTableElement,
   deleteCol,
   deleteRow,
-  deleteTable
+  deleteTable,
+  setColAlign
 } from '@/script/utils/tableUtils';
 import { getClosestElement } from '@/script/utils/closestBlock';
 
@@ -220,10 +221,13 @@ class TableMenu extends ModalBase {
             insertRow(cellElement, 'after');
             break;
           case TableEvent.EVENT_ALIGN_CENTER:
+            setColAlign(cellElement, 'center');
             break;
           case TableEvent.EVENT_ALIGN_LEFT:
+            setColAlign(cellElement, 'left');
             break;
           case TableEvent.EVENT_ALIGN_RIGHT:
+            setColAlign(cellElement, 'right');
             break;
           case TableEvent.EVENT_COPY_HTML:
             this.getTableHtml(cellElement);
