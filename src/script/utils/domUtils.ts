@@ -1,4 +1,4 @@
-import { isBoolean } from './utils';
+import { isBoolean, isString, isArray } from './utils';
 
 /**
  * @description 查找符合条件的父节点
@@ -157,4 +157,50 @@ export function getIndexByParents(element: HTMLElement): number {
     }
   }
   return -1;
+}
+
+/**
+ * @description 添加class name
+ * @author angle
+ * @date 2020-07-24
+ * @export
+ * @param {HTMLElement} element 目标节点
+ * @param {string} className class name
+ */
+export function addClass(element: HTMLElement, className: string): void;
+/**
+ * @description 添加class name
+ * @author angle
+ * @date 2020-07-24
+ * @export
+ * @param {HTMLElement} element 目标节点
+ * @param {Array<string | Record<string, boolean>>} classNames class name数组
+ */
+export function addClass(
+  element: HTMLElement,
+  classNames: Array<string | Record<string, boolean>>
+): void;
+/**
+ * @description 添加class name
+ * @author angle
+ * @date 2020-07-24
+ * @export
+ * @param {HTMLElement} element 目标节点
+ * @param {Record<string, boolean>} classNameObj class name对象
+ */
+export function addClass(element: HTMLElement, classNameObj: Record<string, boolean>): void;
+
+export function addClass(element: HTMLElement, classItem: string | Record<string, boolean>): void;
+
+export function addClass(
+  element: HTMLElement,
+  classParam: string | Array<string | Record<string, boolean>> | Record<string, boolean>
+): void {
+  if (isString(classParam)) {
+    element.classList.add(classParam);
+  } else if (isArray<string | Record<string, boolean>>(classParam)) {
+    classParam.forEach((item) => addClass(element, item));
+  } else {
+    element.classList.add(...Object.keys(classParam).filter((key) => classParam[key]));
+  }
 }

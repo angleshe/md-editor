@@ -3,6 +3,7 @@ import style from 'style/editor.modules.scss';
 import { autoBind } from '../utils/decorators';
 import { input } from './input';
 import { processKeydown } from './processKeydown';
+import { processMousedown } from './processMousedown';
 
 class IR {
   private readonly editor: IEditor;
@@ -27,11 +28,15 @@ class IR {
     this.unbind();
     this.contentDom.addEventListener<'keydown'>('keydown', this.keydownHandler);
     this.contentDom.addEventListener<'input'>('input', this.inputHandler);
+    this.contentDom.addEventListener<'mousedown'>('mousedown', this.mousedownHandler);
+    window.addEventListener<'contextmenu'>('contextmenu', this.contextmenuHandler);
   }
 
   private unbind(): void {
     this.contentDom.removeEventListener<'keydown'>('keydown', this.keydownHandler);
     this.contentDom.removeEventListener<'input'>('input', this.inputHandler);
+    this.contentDom.removeEventListener<'mousedown'>('mousedown', this.mousedownHandler);
+    window.removeEventListener<'contextmenu'>('contextmenu', this.contextmenuHandler);
   }
 
   /**
@@ -62,6 +67,32 @@ class IR {
   @autoBind
   private keydownHandler(event: KeyboardEvent): void {
     processKeydown(this.editor, event);
+  }
+
+  /**
+   * @description 鼠标事件
+   * @author angle
+   * @date 2020-07-23
+   * @private
+   * @param {MouseEvent} event
+   * @memberof IR
+   */
+  @autoBind
+  private mousedownHandler(event: MouseEvent): void {
+    processMousedown(this.editor, event);
+  }
+
+  /**
+   * @description 屏蔽鼠标右键菜单
+   * @author angle
+   * @date 2020-07-23
+   * @private
+   * @param {MouseEvent} event
+   * @memberof IR
+   */
+  @autoBind
+  private contextmenuHandler(event: MouseEvent): void {
+    event.preventDefault();
   }
 
   show(): void {

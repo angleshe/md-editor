@@ -1,3 +1,4 @@
+$selectColor: #006eff;
 .modalContainer {
   .mask {
     position: fixed;
@@ -19,12 +20,60 @@
     position: fixed;
     z-index: 9991;
     display: none;
-    padding: 10px 0;
+    padding: 8px 0;
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.31);
     &.active {
       display: block;
+    }
+    .menuItem {
+      position: relative;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-width: 220px;
+      height: 32px;
+      padding: 0 16px;
+      color: #333333;
+      cursor: pointer;
+      &:hover {
+        color: #fff;
+        background-color: $selectColor;
+      }
+      @mixin splitLine {
+        position: absolute;
+        left: 50%;
+        width: calc(100% - #{16 * 2}px);
+        height: 1px;
+        content: '';
+        background-color: #d8d8d8;
+        transform: translate(-50%);
+      }
+      &.splitLineTop {
+        margin-top: 1px;
+        &::before {
+          @include splitLine;
+          top: -1px;
+        }
+      }
+      &.splitLineBottom {
+        margin-bottom: 1px;
+        &::after {
+          @include splitLine;
+          bottom: -1px;
+        }
+      }
+      .title {
+        margin-right: 20px;
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+      .subTitle {
+        font-size: 12px;
+        color: #aaa;
+      }
     }
   }
 }

@@ -1,5 +1,7 @@
 import style from 'style/modal.modules.scss';
 import { isString, addSizeUnit } from '@/script/utils/utils';
+import { addClass, findParentElement } from '@/script/utils/domUtils';
+import { autoBind, override } from '@/script/utils/decorators';
 
 /**
  * @description 模态配置项
@@ -38,6 +40,46 @@ export interface IPosition {
 }
 
 /**
+ * @description 菜单项
+ * @author angle
+ * @date 2020-07-24
+ * @export
+ * @interface IMenuItem
+ */
+export interface IMenuItem {
+  /**
+   * @description 菜单文本
+   * @type {string}
+   * @memberof IMenuItem
+   */
+  text: string;
+  /**
+   * @description 菜单副文本(右)
+   * @type {string}
+   * @memberof IMenuItem
+   */
+  subText?: string;
+  /**
+   * @description 上分割线
+   * @type {boolean}
+   * @memberof IMenuItem
+   */
+  splitLineTop?: boolean;
+  /**
+   * @description 下分割线
+   * @type {boolean}
+   * @memberof IMenuItem
+   */
+  splitLineBottom?: boolean;
+  /**
+   * @description key
+   * @type {string}
+   * @memberof IMenuItem
+   */
+  key?: string;
+}
+
+/**
  * @description 模态基类
  * @author angle
  * @date 2020-07-24
@@ -69,6 +111,8 @@ abstract class ModalBase {
    * @memberof ModalBase
    */
   private static showModal: ModalBase | null = null;
+
+  private static readonly TYPE_MENU_ITEM: string = 'menu-item';
 
   /**
    * @description 配置项
@@ -118,7 +162,8 @@ abstract class ModalBase {
       // 关闭上一个modal
       ModalBase.showModal.hide(false);
     } else {
-      ModalBase.maskElement.classList.add(style.active);
+      // bug: 修复显示时光标节点在遮罩层上
+      setTimeout(() => ModalBase.maskElement.classList.add(style.active));
     }
     ModalBase.showModal = this;
 
@@ -206,15 +251,17 @@ abstract class ModalBase {
     const modal: HTMLDivElement = document.createElement<'div'>('div');
     modal.classList.add(style.modal);
 
-    const child: string | HTMLElement = this.contentRender();
+    // 子类的渲染方法需要在对象构造完成时才能获取对象本身属性方法,所以把构造面板push微任务队列中执行
+    new Promise((resolve) => resolve()).then(() => {
+      const child: string | HTMLElement = this.contentRender();
+      if (isString(child)) {
+        modal.innerHTML = child;
+      } else {
+        modal.appendChild<HTMLElement>(child);
+      }
+      ModalBase.modalContainerElement.appendChild<HTMLDivElement>(modal);
+    });
 
-    if (isString(child)) {
-      modal.innerHTML = child;
-    } else {
-      modal.appendChild<HTMLElement>(child);
-    }
-
-    ModalBase.modalContainerElement.appendChild<HTMLDivElement>(modal);
     return modal;
   }
 
@@ -227,7 +274,10 @@ abstract class ModalBase {
    */
   private bind(): void {
     this.unBind();
-    ModalBase.modalContainerElement.addEventListener<'click'>('click', this.clickHandler);
+    ModalBase.modalContainerElement.addEventListener<'mousedown'>(
+      'mousedown',
+      this.mousedownHandler
+    );
   }
 
   /**
@@ -238,7 +288,10 @@ abstract class ModalBase {
    * @memberof ModalBase
    */
   private unBind(): void {
-    ModalBase.modalContainerElement.removeEventListener<'click'>('click', this.clickHandler);
+    ModalBase.modalContainerElement.removeEventListener<'mousedown'>(
+      'mousedown',
+      this.mousedownHandler
+    );
   }
 
   /**
@@ -249,13 +302,95 @@ abstract class ModalBase {
    * @param {MouseEvent} event
    * @memberof ModalBase
    */
-  private clickHandler(event: MouseEvent): void {
-    if (event.target instanceof HTMLElement && event.target === ModalBase.maskElement) {
-      ModalBase.showModal?.hide();
+  @autoBind
+  private mousedownHandler(event: MouseEvent): void {
+    if (event.target instanceof HTMLElement) {
+      if (event.target === ModalBase.maskElement) {
+        ModalBase.showModal?.hide();
+      } else {
+        const menuItem = findParentElement(
+          event.target,
+          (element) => element.getAttribute('data-type') === ModalBase.TYPE_MENU_ITEM,
+          (element) => element === this.modalElement,
+          true
+        );
+        if (menuItem) {
+          this.menuItemClickHandler(menuItem.getAttribute('data-key'));
+        }
+      }
+      event.preventDefault();
+      event.stopPropagation();
     }
-    event.preventDefault();
-    event.stopPropagation();
   }
+
+  /**
+   * @description 创建菜单项
+   * @author angle
+   * @date 2020-07-24
+   * @protected
+   * @param {IMenuItem} item 数据项
+   * @returns {HTMLDivElement}
+   * @memberof ModalBase
+   */
+  protected createdMenuItem(item: IMenuItem): HTMLDivElement;
+
+  /**
+   * @description 创建菜单项
+   * @author angle
+   * @date 2020-07-24
+   * @protected
+   * @template K
+   * @param {IMenuItem} item 数据项
+   * @param {K} tagName 标签名
+   * @returns {HTMLElementTagNameMap[K]}
+   * @memberof ModalBase
+   */
+  protected createdMenuItem<K extends keyof HTMLElementTagNameMap>(
+    item: IMenuItem,
+    tagName: K
+  ): HTMLElementTagNameMap[K];
+
+  protected createdMenuItem<K extends keyof HTMLElementTagNameMap = 'div'>(
+    item: IMenuItem,
+    tagName?: K
+  ): HTMLElementTagNameMap[K] | HTMLDivElement {
+    const itemElement = document.createElement<K | 'div'>(tagName ?? 'div');
+    addClass(itemElement, [
+      style.menuItem,
+      {
+        [style.splitLineTop]: item.splitLineTop ?? false,
+        [style.splitLineBottom]: item.splitLineBottom ?? false
+      }
+    ]);
+    itemElement.setAttribute('data-type', ModalBase.TYPE_MENU_ITEM);
+    if (item.key) {
+      itemElement.setAttribute('data-key', item.key);
+    }
+
+    const titleElement: HTMLSpanElement = document.createElement<'span'>('span');
+    titleElement.classList.add(style.title);
+    titleElement.innerText = item.text;
+
+    const subTitleElement: HTMLSpanElement = document.createElement<'span'>('span');
+    subTitleElement.classList.add(style.subTitle);
+    subTitleElement.innerText = item.subText ?? '';
+
+    itemElement.appendChild(titleElement);
+    itemElement.appendChild(subTitleElement);
+
+    return itemElement;
+  }
+
+  /**
+   * @description 菜单点击事件,子类可重写实现
+   * @author angle
+   * @date 2020-07-24
+   * @protected
+   * @param {(string | null)} _key
+   * @memberof ModalBase
+   */
+  @override
+  protected menuItemClickHandler(_key: string | null): void {}
 }
 
 export default ModalBase;

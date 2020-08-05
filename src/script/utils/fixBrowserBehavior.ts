@@ -80,7 +80,6 @@ export function fixCodeBlock(editor: IEditor, event: KeyboardEvent, range: Range
  * @param {Range} range
  * @returns {boolean}
  */
-// eslint-disable-next-line complexity
 export function fixTable(editor: IEditor, event: KeyboardEvent, range: Range): boolean {
   const tableElement = getClosestBlock(range.startContainer);
   if (tableElement) {

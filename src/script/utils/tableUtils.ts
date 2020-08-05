@@ -6,9 +6,9 @@ import { findParentElement, getIndexByParents } from './domUtils';
  * @date 2020-07-21
  * @export
  * @param {HTMLElement} element
- * @returns {(HTMLElement | null)}
+ * @returns {(HTMLTableCellElement | null)}
  */
-export function findTableCellsElement(element: HTMLElement): HTMLElement | null {
+export function findTableCellsElement(element: HTMLElement): HTMLTableCellElement | null {
   return findParentElement(
     element,
     (ele) => ['th', 'td'].includes(ele.tagName.toLocaleLowerCase()),
@@ -110,4 +110,51 @@ export function insertCol(
       );
     }
   }
+}
+
+/**
+ * @description 删除行
+ * @author angle
+ * @date 2020-07-29
+ * @export
+ * @param {HTMLElement} targetElement
+ */
+export function deleteRow(targetElement: HTMLElement): void {
+  const trElement = findParentElement<HTMLTableRowElement>(
+    targetElement,
+    (ele) => ele.tagName.toLocaleLowerCase() === 'tr',
+    true
+  );
+  if (trElement) {
+    trElement.remove();
+  }
+}
+
+/**
+ * @description 删除列
+ * @author angle
+ * @date 2020-07-29
+ * @export
+ * @param {HTMLElement} targetElement
+ */
+export function deleteCol(targetElement: HTMLElement): void {
+  const cellElement = findTableCellsElement(targetElement);
+  const tableElement = findTableElement(targetElement);
+  if (cellElement && tableElement) {
+    const index: number = getIndexByParents(cellElement);
+    for (let i: number = 0; i < tableElement.rows.length; i++) {
+      tableElement.rows[i].children[index].remove();
+    }
+  }
+}
+
+/**
+ * @description 删除表格
+ * @author angle
+ * @date 2020-07-29
+ * @export
+ * @param {HTMLElement} targetElement
+ */
+export function deleteTable(targetElement: HTMLElement): void {
+  findTableElement(targetElement)?.remove();
 }

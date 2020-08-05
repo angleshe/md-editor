@@ -43,6 +43,18 @@ export function isBoolean(value: any): value is boolean {
 }
 
 /**
+ * @description 判断是否为array类型
+ * @author angle
+ * @date 2020-07-24
+ * @export
+ * @template T array item类型(没有判断)
+ * @param {*} value
+ * @returns {value is Array<T>}
+ */
+export function isArray<T = any>(value: any): value is Array<T> {
+  return isType(value, 'Array');
+}
+/**
  * @description 为大小添加单位
  * @author angle
  * @date 2020-06-26

@@ -7,6 +7,8 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/no-inferrable-types': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    '@typescript-eslint/no-empty-function': ['error', { allow: ['methods'] }],
     '@typescript-eslint/interface-name-prefix': [
       'error',
       { prefixWithI: 'always', allowUnderscorePrefix: true }
@@ -18,12 +20,6 @@ module.exports = {
       }
     ],
     'comma-dangle': ['error', 'never'],
-    complexity: [
-      'error',
-      {
-        max: 15
-      }
-    ],
     'no-useless-constructor': 'off',
     '@typescript-eslint/no-useless-constructor': 'error',
     '@typescript-eslint/unbound-method': 'off',
