@@ -5,7 +5,11 @@ import StyleLintPlugin from 'stylelint-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
-function styleLoaderFactory(isPro: boolean, isModules: boolean): RuleSetUseItem[] {
+function styleLoaderFactory(
+  isPro: boolean,
+  isModules: boolean,
+  isSass: boolean = true
+): RuleSetUseItem[] {
   return [
     {
       loader: MiniCssExtractPlugin.loader,
@@ -21,13 +25,17 @@ function styleLoaderFactory(isPro: boolean, isModules: boolean): RuleSetUseItem[
       }
     },
     'postcss-loader',
-    'sass-loader',
-    {
-      loader: 'style-resources-loader',
-      options: {
-        patterns: [path.resolve(__dirname, './src/style/_util.scss')]
-      }
-    }
+    ...(isSass
+      ? [
+          'sass-loader',
+          {
+            loader: 'style-resources-loader',
+            options: {
+              patterns: [path.resolve(__dirname, './src/style/_util.scss')]
+            }
+          }
+        ]
+      : [])
   ];
 }
 
@@ -61,7 +69,11 @@ export default (env: 'production' | 'development'): Configuration => {
           use: styleLoaderFactory(isPro, true)
         },
         {
-          test: /\.jpg$/,
+          test: /\.css$/,
+          use: styleLoaderFactory(isPro, false, false)
+        },
+        {
+          test: /\.(eot|woff2?|ttf|svg)$/,
           loader: 'url-loader'
         }
       ]

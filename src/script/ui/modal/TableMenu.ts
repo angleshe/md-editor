@@ -34,6 +34,10 @@ enum TableEvent {
    */
   EVENT_ADD_COL_AFTER = 'EVENT_ADD_COL_AFTER',
   /**
+   * 对齐组
+   */
+  EVENT_ALIGN_GROUP = 'EVENT_ALIGN_GROUP',
+  /**
    * 左对齐
    */
   EVENT_ALIGN_LEFT = 'EVENT_ALIGN_LEFT',
@@ -106,7 +110,22 @@ class TableMenu extends ModalBase {
     },
     {
       text: '对齐方式',
-      splitLineBottom: true
+      splitLineBottom: true,
+      key: TableEvent.EVENT_ALIGN_GROUP,
+      children: [
+        {
+          text: '左对齐',
+          key: TableEvent.EVENT_ALIGN_LEFT
+        },
+        {
+          text: '居中',
+          key: TableEvent.EVENT_ALIGN_CENTER
+        },
+        {
+          text: '右对齐',
+          key: TableEvent.EVENT_ALIGN_RIGHT
+        }
+      ]
     },
     {
       text: '删除当前行',

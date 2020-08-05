@@ -4,6 +4,7 @@ import { initUi } from './script/ui';
 import IR from './script/ir';
 import { addScript } from './script/utils/addPublicRes';
 import { createdLute } from './script/markdown/lute';
+import 'res/iconFonts/iconfont.css';
 
 export interface IEditor {
   options: Required<IOptions>;

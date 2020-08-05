@@ -76,7 +76,13 @@ export interface IMenuItem {
    * @type {string}
    * @memberof IMenuItem
    */
-  key?: string;
+  key: string;
+  /**
+   * @description 子菜单
+   * @type {IMenuItem[]}
+   * @memberof IMenuItem
+   */
+  children?: IMenuItem[];
 }
 
 /**
@@ -111,8 +117,37 @@ abstract class ModalBase {
    * @memberof ModalBase
    */
   private static showModal: ModalBase | null = null;
-
+  /**
+   * @description 当前显示的所有子菜单节点
+   * @private
+   * @static
+   * @type {HTMLElement[]}
+   * @memberof ModalBase
+   */
+  private static showSubModalElementList: HTMLElement[] = [];
+  /**
+   * @description 有下级菜单的菜单项data-type标示
+   * @private
+   * @static
+   * @memberof ModalBase
+   */
+  private static readonly TYPE_SHOW_SUB_MENU_ITEM = 'show-sub-menu-item';
+  /**
+   * @description 可点击菜单项data-type标示
+   * @private
+   * @static
+   * @type {string}
+   * @memberof ModalBase
+   */
   private static readonly TYPE_MENU_ITEM: string = 'menu-item';
+  /**
+   * @description 子菜单节点ata-type标示
+   * @private
+   * @static
+   * @type {string}
+   * @memberof ModalBase
+   */
+  private static readonly TYPE_SUB_MENU: string = 'sub-menu';
 
   /**
    * @description 配置项
@@ -184,6 +219,7 @@ abstract class ModalBase {
    * @memberof ModalBase
    */
   public hide(isCloseMask: boolean = true): void {
+    this.closeAllSubMenu();
     this.modalElement.classList.remove(style.active);
     if (isCloseMask) {
       ModalBase.maskElement.classList.remove(style.active);
@@ -234,7 +270,6 @@ abstract class ModalBase {
   private createMask(): HTMLDivElement {
     const maskElement: HTMLDivElement = document.createElement<'div'>('div');
     maskElement.classList.add(style.mask);
-
     ModalBase.modalContainerElement.appendChild<HTMLDivElement>(maskElement);
     return maskElement;
   }
@@ -278,6 +313,10 @@ abstract class ModalBase {
       'mousedown',
       this.mousedownHandler
     );
+    ModalBase.modalContainerElement.addEventListener<'mouseover'>(
+      'mouseover',
+      this.mouseOverHandler
+    );
   }
 
   /**
@@ -291,6 +330,10 @@ abstract class ModalBase {
     ModalBase.modalContainerElement.removeEventListener<'mousedown'>(
       'mousedown',
       this.mousedownHandler
+    );
+    ModalBase.modalContainerElement.removeEventListener<'mouseover'>(
+      'mouseover',
+      this.mouseOverHandler
     );
   }
 
@@ -321,6 +364,77 @@ abstract class ModalBase {
       event.preventDefault();
       event.stopPropagation();
     }
+  }
+
+  /**
+   * @description 鼠标移入事件
+   * @author angle
+   * @date 2020-08-05
+   * @private
+   * @param {MouseEvent} event
+   * @memberof ModalBase
+   */
+  @autoBind
+  private mouseOverHandler(event: MouseEvent): void {
+    if (event.target instanceof HTMLElement) {
+      const menuItem = findParentElement(
+        event.target,
+        (element) => element.getAttribute('data-type') === ModalBase.TYPE_SHOW_SUB_MENU_ITEM,
+        (element) => element === this.modalElement,
+        true
+      );
+      if (menuItem) {
+        const subMenuElement = ModalBase.modalContainerElement.querySelector<HTMLUListElement>(
+          `[data-type=${ModalBase.TYPE_SUB_MENU}][data-parent-key=${menuItem.getAttribute(
+            'data-key'
+          )}]`
+        );
+        if (subMenuElement) {
+          const rect = menuItem.getBoundingClientRect();
+          subMenuElement.style.left = `${rect.left + rect.width}px`;
+          subMenuElement.style.top = `${rect.top}px`;
+          subMenuElement.classList.add(style.active);
+          ModalBase.showSubModalElementList.push(subMenuElement);
+        }
+      } else if (
+        !findParentElement(
+          event.target,
+          (element) => element.getAttribute('data-type') === ModalBase.TYPE_SUB_MENU,
+          (element) => element === this.modalElement,
+          true
+        )
+      ) {
+        this.closeAllSubMenu();
+      }
+    }
+  }
+
+  /**
+   * @description 创建子菜单
+   * @author angle
+   * @date 2020-08-05
+   * @private
+   * @param {IMenuItem[]} menuList
+   * @returns {HTMLUListElement}
+   * @memberof ModalBase
+   */
+  private createdSubMenu(menuList: IMenuItem[]): HTMLUListElement {
+    const subMenuElement: HTMLUListElement = document.createElement<'ul'>('ul');
+    subMenuElement.classList.add(style.modal);
+    menuList.forEach((item) => subMenuElement.appendChild(this.createdMenuItem<'li'>(item, 'li')));
+    return subMenuElement;
+  }
+
+  /**
+   * @description 关闭所有显示的子菜单
+   * @author angle
+   * @date 2020-08-05
+   * @private
+   * @memberof ModalBase
+   */
+  private closeAllSubMenu(): void {
+    ModalBase.showSubModalElementList.forEach((item) => item.classList.remove(style.active));
+    ModalBase.showSubModalElementList = [];
   }
 
   /**
@@ -362,10 +476,11 @@ abstract class ModalBase {
         [style.splitLineBottom]: item.splitLineBottom ?? false
       }
     ]);
-    itemElement.setAttribute('data-type', ModalBase.TYPE_MENU_ITEM);
-    if (item.key) {
-      itemElement.setAttribute('data-key', item.key);
-    }
+    itemElement.setAttribute(
+      'data-type',
+      item.children?.length ? ModalBase.TYPE_SHOW_SUB_MENU_ITEM : ModalBase.TYPE_MENU_ITEM
+    );
+    itemElement.setAttribute('data-key', item.key);
 
     const titleElement: HTMLSpanElement = document.createElement<'span'>('span');
     titleElement.classList.add(style.title);
@@ -377,6 +492,18 @@ abstract class ModalBase {
 
     itemElement.appendChild(titleElement);
     itemElement.appendChild(subTitleElement);
+
+    if (item.children?.length) {
+      const iconElement: HTMLSpanElement = document.createElement<'span'>('span');
+      iconElement.classList.add('iconfont', 'icon-arrow-right');
+      itemElement.appendChild(iconElement);
+
+      const subMenuElement: HTMLUListElement = this.createdSubMenu(item.children);
+      subMenuElement.setAttribute('data-type', ModalBase.TYPE_SUB_MENU);
+      subMenuElement.setAttribute('data-parent-key', item.key);
+
+      ModalBase.modalContainerElement.appendChild(subMenuElement);
+    }
 
     return itemElement;
   }
