@@ -7,7 +7,7 @@ import {
 } from './closestBlock';
 import { input } from '../ir/input';
 import { isOnlyTouchEnter, matchHotKey } from './eventUtils';
-import { insertRow, insertCol, findTableCellsElement } from './tableUtils';
+import { insertRow, insertCol, findTableCellsElement, setColAlign } from './tableUtils';
 import { setRangeByWbr, setRangeByElement } from './selection';
 import { getIndexByParents } from './domUtils';
 
@@ -119,6 +119,24 @@ export function fixTable(editor: IEditor, event: KeyboardEvent, range: Range): b
         const rangeElement = getClosestElement(range.startContainer);
         if (rangeElement) {
           insertCol(rangeElement, 'after');
+        }
+        event.preventDefault();
+        return true;
+      }
+      // 居左
+      if (matchHotKey('⌘-←', event)) {
+        const rangeElement = getClosestElement(range.startContainer);
+        if (rangeElement) {
+          setColAlign(rangeElement, 'left');
+        }
+        event.preventDefault();
+        return true;
+      }
+      // 居右
+      if (matchHotKey('⌘-→', event)) {
+        const rangeElement = getClosestElement(range.startContainer);
+        if (rangeElement) {
+          setColAlign(rangeElement, 'right');
         }
         event.preventDefault();
         return true;

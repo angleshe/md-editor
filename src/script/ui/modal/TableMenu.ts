@@ -116,7 +116,8 @@ class TableMenu extends ModalBase {
       children: [
         {
           text: '左对齐',
-          key: TableEvent.EVENT_ALIGN_LEFT
+          key: TableEvent.EVENT_ALIGN_LEFT,
+          subText: '⌘+←'
         },
         {
           text: '居中',
@@ -124,7 +125,8 @@ class TableMenu extends ModalBase {
         },
         {
           text: '右对齐',
-          key: TableEvent.EVENT_ALIGN_RIGHT
+          key: TableEvent.EVENT_ALIGN_RIGHT,
+          subText: '⌘+→'
         }
       ]
     },

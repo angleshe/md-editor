@@ -25,6 +25,36 @@ export function isOnlyTouchEnter(event: KeyboardEvent): boolean {
 }
 
 /**
+ * @description 解析键盘键值
+ * @author angle
+ * @date 2020-08-06
+ * @export
+ * @param {string} key
+ * @returns {string}
+ */
+export function parseKey(key: string): string {
+  let val: string;
+  switch (key) {
+    case '↑':
+      val = 'ArrowUp';
+      break;
+    case '↓':
+      val = 'ArrowDown';
+      break;
+    case '←':
+      val = 'ArrowLeft';
+      break;
+    case '→':
+      val = 'ArrowRight';
+      break;
+    default:
+      val = key;
+      break;
+  }
+  return val;
+}
+
+/**
  * @description 判断是否按下组合快捷键
  * @author angle
  * @date 2020-07-14
@@ -40,7 +70,7 @@ export function matchHotKey(
   separator: string = '-'
 ): boolean {
   const hotkeys: string[] = hotkey.split(separator);
-  const key: string = hotkeys[hotkeys.length - 1];
+  const key: string = parseKey(hotkeys[hotkeys.length - 1]);
   const hasCtrl: boolean = hotkeys.some((value) => value === 'ctrl' || value === '⌘');
   const hasAlt: boolean = hotkeys.some((value) => value === 'alt' || value === '⌥');
   const hasShift: boolean = hotkeys.some((value) => value === 'shift' || value === '⇧');
