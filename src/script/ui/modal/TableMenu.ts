@@ -12,6 +12,10 @@ import {
   setColAlign
 } from '@/script/utils/tableUtils';
 import { getClosestElement } from '@/script/utils/closestBlock';
+import { copy } from '@/script/utils/clipboardUtils';
+import { IEditor } from '@/index';
+
+type TableColAlign = 'left' | 'right' | 'center' | '';
 
 /**
  * @description 表格操作事件
@@ -71,6 +75,7 @@ enum TableEvent {
    */
   EVENT_COPY_MD = ' EVENT_COPY_MD'
 }
+
 /**
  * @description 表格菜单
  * @author angle
@@ -149,8 +154,14 @@ class TableMenu extends ModalBase {
     {
       text: '复制表格',
       key: TableEvent.EVENT_COPY_HTML
+    },
+    {
+      text: '复制表格md',
+      key: TableEvent.EVENT_COPY_MD
     }
   ];
+
+  protected readonly editor: IEditor;
 
   /**
    * @description 获取表格菜单对象,如果没有则创建
@@ -160,9 +171,9 @@ class TableMenu extends ModalBase {
    * @returns {TableMenu}
    * @memberof TableMenu
    */
-  public static getTableMenu(): TableMenu {
+  public static getTableMenu(editor: IEditor): TableMenu {
     if (TableMenu.tableMenu === null) {
-      TableMenu.tableMenu = new TableMenu();
+      TableMenu.tableMenu = new TableMenu(editor);
     }
     return TableMenu.tableMenu;
   }
@@ -190,10 +201,11 @@ class TableMenu extends ModalBase {
   //   console.log(this.tableElement);
   // }
 
-  private constructor() {
+  private constructor(editor: IEditor) {
     super({
       maskClassName: style.tableMenuMask
     });
+    this.editor = editor;
   }
 
   protected contentRender(): HTMLUListElement {
@@ -202,6 +214,15 @@ class TableMenu extends ModalBase {
     return ulElement;
   }
 
+  /**
+   * @description 获取table的html
+   * @author angle
+   * @date 2020-08-06
+   * @private
+   * @param {HTMLElement} targetElement
+   * @returns {string}
+   * @memberof TableMenu
+   */
   private getTableHtml(targetElement: HTMLElement): string {
     return findTableElement(targetElement)?.outerHTML ?? '';
   }
@@ -211,16 +232,16 @@ class TableMenu extends ModalBase {
    * @author angle
    * @date 2020-08-06
    * @private
-   * @returns {('left' | 'right' | 'center' | '')}
+   * @returns {TableColAlign}
    * @memberof TableMenu
    */
-  private getCurrentAlign(): 'left' | 'right' | 'center' | '' {
+  private getCurrentAlign(): TableColAlign {
     const range = getRange();
     if (range) {
       const targetElement = getClosestElement(range.startContainer);
       if (targetElement) {
         const cellElement = findTableCellsElement(targetElement);
-        return cellElement ? (cellElement.align as 'left' | 'right' | 'center' | '') : '';
+        return cellElement ? (cellElement.align as TableColAlign) : '';
       }
     }
     return '';
@@ -255,9 +276,13 @@ class TableMenu extends ModalBase {
             setColAlign(cellElement, 'right');
             break;
           case TableEvent.EVENT_COPY_HTML:
-            this.getTableHtml(cellElement);
+            copy(this.getTableHtml(cellElement), 'text/html');
             break;
           case TableEvent.EVENT_COPY_MD:
+            if (this.editor.lute) {
+              // !!! bug: table md 格式有问题
+              copy(this.editor.lute.VditorIRDOM2Md(this.getTableHtml(cellElement)));
+            }
             break;
           case TableEvent.EVENT_DELETE_COL:
             deleteCol(cellElement);
@@ -281,7 +306,7 @@ class TableMenu extends ModalBase {
 
   protected subMenuShowHandler(subMenuElement: HTMLElement): void {
     this.clearAllCheckedStatus(subMenuElement);
-    const align: 'left' | 'right' | 'center' | '' = this.getCurrentAlign();
+    const align: TableColAlign = this.getCurrentAlign();
     let key: string = '';
     switch (align) {
       case 'left':

@@ -12,7 +12,7 @@ import { setRangeByElement } from '../utils/selection';
 function rightMousedown(editor: IEditor, event: MouseEvent): void {
   if (event.target instanceof HTMLElement) {
     // 表格右键菜单
-    const tableMenu: TableMenu = TableMenu.getTableMenu();
+    const tableMenu: TableMenu = TableMenu.getTableMenu(editor);
     if (findTableElement(event.target)) {
       const cellElement = findTableCellsElement(event.target);
       if (cellElement) {
