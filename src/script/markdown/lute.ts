@@ -38,10 +38,10 @@ export interface ILuteOptions extends IMarkdownConfig {
  * @date 2020-06-27
  * @export
  * @param {ILuteOptions} options
- * @returns {ILute}
+ * @returns {Lute}
  */
-export function createdLute(options: ILuteOptions): ILute {
-  const lute: ILute = window.Lute.New();
+export function createdLute(options: ILuteOptions): Lute {
+  const lute: Lute = window.Lute.New();
   lute.PutEmojis(options.emojis);
   lute.SetEmojiSite(options.emojiSite);
   lute.SetHeadingAnchor(options.headingAnchor);

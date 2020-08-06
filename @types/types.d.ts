@@ -6,9 +6,12 @@ declare class Lute {
   public static WalkSkipChildren: number;
   public static WalkContinue: number;
   public static Version: string;
+  public static Caret: string;
+
+  private constructor();
   public static New(): Lute;
 
-  GetHeadingID(node: ILuteNode): string;
+  public static GetHeadingID(node: ILuteNode): string;
 
   SetJSRenderers(options?: {
     renderers: {

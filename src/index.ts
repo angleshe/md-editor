@@ -10,7 +10,7 @@ export interface IEditor {
   options: Required<IOptions>;
   element: HTMLElement;
   ir?: IR;
-  lute?: ILute;
+  lute?: Lute;
 }
 
 class MdEditor {
