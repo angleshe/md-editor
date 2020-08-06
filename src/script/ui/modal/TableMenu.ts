@@ -117,16 +117,19 @@ class TableMenu extends ModalBase {
         {
           text: '左对齐',
           key: TableEvent.EVENT_ALIGN_LEFT,
-          subText: '⌘+←'
+          subText: '⌘+←',
+          type: 'checkItem'
         },
         {
           text: '居中',
-          key: TableEvent.EVENT_ALIGN_CENTER
+          key: TableEvent.EVENT_ALIGN_CENTER,
+          type: 'checkItem'
         },
         {
           text: '右对齐',
           key: TableEvent.EVENT_ALIGN_RIGHT,
-          subText: '⌘+→'
+          subText: '⌘+→',
+          type: 'checkItem'
         }
       ]
     },
@@ -203,6 +206,26 @@ class TableMenu extends ModalBase {
     return findTableElement(targetElement)?.outerHTML ?? '';
   }
 
+  /**
+   * @description 获取当前光标所在表格列的对齐方式
+   * @author angle
+   * @date 2020-08-06
+   * @private
+   * @returns {('left' | 'right' | 'center' | '')}
+   * @memberof TableMenu
+   */
+  private getCurrentAlign(): 'left' | 'right' | 'center' | '' {
+    const range = getRange();
+    if (range) {
+      const targetElement = getClosestElement(range.startContainer);
+      if (targetElement) {
+        const cellElement = findTableCellsElement(targetElement);
+        return cellElement ? (cellElement.align as 'left' | 'right' | 'center' | '') : '';
+      }
+    }
+    return '';
+  }
+
   protected menuItemClickHandler(key: TableEvent | null): void {
     const range = getRange();
     if (range) {
@@ -252,6 +275,31 @@ class TableMenu extends ModalBase {
         if (isCloseMenu) {
           this.hide();
         }
+      }
+    }
+  }
+
+  protected subMenuShowHandler(subMenuElement: HTMLElement): void {
+    this.clearAllCheckedStatus(subMenuElement);
+    const align: 'left' | 'right' | 'center' | '' = this.getCurrentAlign();
+    let key: string = '';
+    switch (align) {
+      case 'left':
+        key = TableEvent.EVENT_ALIGN_LEFT;
+        break;
+      case 'center':
+        key = TableEvent.EVENT_ALIGN_CENTER;
+        break;
+      case 'right':
+        key = TableEvent.EVENT_ALIGN_RIGHT;
+        break;
+      default:
+        break;
+    }
+    if (key) {
+      const checkElement = this.findMenuItemElementByKey(key, subMenuElement);
+      if (checkElement) {
+        this.setCheckItemStatus(checkElement, true);
       }
     }
   }

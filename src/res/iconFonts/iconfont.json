@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "107870",
+      "name": "勾",
+      "font_class": "check",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
       "icon_id": "551962",
       "name": "箭头",
       "font_class": "arrow-right",

@@ -1,6 +1,6 @@
 import style from 'style/modal.modules.scss';
 import { isString, addSizeUnit } from '@/script/utils/utils';
-import { addClass, findParentElement } from '@/script/utils/domUtils';
+import { addClass, findParentElement, hasClass } from '@/script/utils/domUtils';
 import { autoBind, override } from '@/script/utils/decorators';
 
 /**
@@ -83,6 +83,12 @@ export interface IMenuItem {
    * @memberof IMenuItem
    */
   children?: IMenuItem[];
+  /**
+   * @description 类型
+   * @type {('checkItem' | 'default')} default: 默认类型, checkItem: 选项
+   * @memberof IMenuItem
+   */
+  type?: 'checkItem' | 'default';
 }
 
 /**
@@ -148,6 +154,14 @@ abstract class ModalBase {
    * @memberof ModalBase
    */
   private static readonly TYPE_SUB_MENU: string = 'sub-menu';
+  /**
+   * @description 可勾选菜单项
+   * @private
+   * @static
+   * @type {string}
+   * @memberof ModalBase
+   */
+  private static readonly TYPE_CHECK_MENU_ITEM: string = 'check-menu-item';
 
   /**
    * @description 配置项
@@ -353,7 +367,10 @@ abstract class ModalBase {
       } else {
         const menuItem = findParentElement(
           event.target,
-          (element) => element.getAttribute('data-type') === ModalBase.TYPE_MENU_ITEM,
+          (element) =>
+            [ModalBase.TYPE_MENU_ITEM, ModalBase.TYPE_CHECK_MENU_ITEM].includes(
+              element.getAttribute('data-type') ?? ''
+            ),
           (element) => element === this.modalElement,
           true
         );
@@ -389,7 +406,11 @@ abstract class ModalBase {
             'data-key'
           )}]`
         );
+
         if (subMenuElement) {
+          // 存在子菜单
+          this.subMenuShowHandler(subMenuElement);
+          // 显示子菜单
           const rect = menuItem.getBoundingClientRect();
           subMenuElement.style.left = `${rect.left + rect.width}px`;
           subMenuElement.style.top = `${rect.top}px`;
@@ -476,15 +497,24 @@ abstract class ModalBase {
         [style.splitLineBottom]: item.splitLineBottom ?? false
       }
     ]);
-    itemElement.setAttribute(
-      'data-type',
-      item.children?.length ? ModalBase.TYPE_SHOW_SUB_MENU_ITEM : ModalBase.TYPE_MENU_ITEM
-    );
+    let type: string;
+    if (item.children?.length) {
+      type = ModalBase.TYPE_SHOW_SUB_MENU_ITEM;
+    } else if (item.type === 'checkItem') {
+      type = ModalBase.TYPE_CHECK_MENU_ITEM;
+    } else {
+      type = ModalBase.TYPE_MENU_ITEM;
+    }
+    itemElement.setAttribute('data-type', type);
     itemElement.setAttribute('data-key', item.key);
 
     const titleElement: HTMLSpanElement = document.createElement<'span'>('span');
     titleElement.classList.add(style.title);
-    titleElement.innerText = item.text;
+    if (item.type === 'checkItem') {
+      titleElement.innerHTML = `<span class="iconfont ${style.checkBox}"></span>${item.text}`;
+    } else {
+      titleElement.innerText = item.text;
+    }
 
     const subTitleElement: HTMLSpanElement = document.createElement<'span'>('span');
     subTitleElement.classList.add(style.subTitle);
@@ -509,6 +539,61 @@ abstract class ModalBase {
   }
 
   /**
+   * @description 设置可选菜单项的状态
+   * @author angle
+   * @date 2020-08-06
+   * @protected
+   * @param {HTMLElement} targetElement 目标节点
+   * @param {boolean} isCheck 是否选中
+   * @memberof ModalBase
+   */
+  protected setCheckItemStatus(targetElement: HTMLElement, isCheck: boolean): void {
+    const checkElement = targetElement.querySelector<HTMLElement>(`.${style.checkBox}`);
+    if (checkElement && hasClass(checkElement, 'icon-check') !== isCheck) {
+      if (isCheck) {
+        checkElement.classList.add('icon-check');
+      } else {
+        checkElement.classList.remove('icon-check');
+      }
+    }
+  }
+
+  /**
+   * @description 清除所有选中菜单状态
+   * @author angle
+   * @date 2020-08-06
+   * @protected
+   * @param {HTMLElement} [parentElement=ModalBase.modalContainerElement] 范围,默认所有菜单
+   * @memberof ModalBase
+   */
+  protected clearAllCheckedStatus(
+    parentElement: HTMLElement = ModalBase.modalContainerElement
+  ): void {
+    parentElement
+      .querySelectorAll(
+        `[data-type=${ModalBase.TYPE_CHECK_MENU_ITEM}] .${style.checkBox}.icon-check`
+      )
+      .forEach((ele) => ele.classList.remove('icon-check'));
+  }
+
+  /**
+   * @description 查找key的菜单项
+   * @author angle
+   * @date 2020-08-06
+   * @protected
+   * @param {string} key
+   * @param {HTMLElement} [parentElement=ModalBase.modalContainerElement] 范围,默认所有菜单
+   * @returns {(HTMLElement | null)}
+   * @memberof ModalBase
+   */
+  protected findMenuItemElementByKey(
+    key: string,
+    parentElement: HTMLElement = ModalBase.modalContainerElement
+  ): HTMLElement | null {
+    return parentElement.querySelector<HTMLElement>(`.${style.menuItem}[data-key=${key}]`);
+  }
+
+  /**
    * @description 菜单点击事件,子类可重写实现
    * @author angle
    * @date 2020-07-24
@@ -518,6 +603,17 @@ abstract class ModalBase {
    */
   @override
   protected menuItemClickHandler(_key: string | null): void {}
+
+  /**
+   * @description 子菜单显示事件,子类可重写实现
+   * @author angle
+   * @date 2020-08-06
+   * @protected
+   * @param {ISubMenuObj} _subMenuElement 子菜单节点
+   * @memberof ModalBase
+   */
+  @override
+  protected subMenuShowHandler(_subMenuElement: HTMLElement): void {}
 }
 
 export default ModalBase;

@@ -69,6 +69,12 @@ $selectColor: #006eff;
         margin-right: 20px;
         font-size: 14px;
         letter-spacing: 1px;
+        .checkBox {
+          @include wh(18);
+          display: inline-block;
+
+          margin-right: 3px;
+        }
       }
       .subTitle {
         font-size: 12px;
