@@ -108,6 +108,7 @@
 						<section class="tsd-index-section tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_src_script_ui_modal_tablemenu_.tablemenu.html#editor" class="tsd-kind-icon">editor</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_src_script_ui_modal_tablemenu_.tablemenu.html#menulist" class="tsd-kind-icon">menu<wbr>List</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_src_script_ui_modal_tablemenu_.tablemenu.html#modalelement" class="tsd-kind-icon">modal<wbr>Element</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="_src_script_ui_modal_tablemenu_.tablemenu.html#tablemenu" class="tsd-kind-icon">table<wbr>Menu</a></li>
@@ -139,16 +140,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Table<wbr>Menu<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_src_script_ui_modal_tablemenu_.tablemenu.html" class="tsd-signature-type">TableMenu</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Table<wbr>Menu<span class="tsd-signature-symbol">(</span>editor<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_index_.ieditor.html" class="tsd-signature-type">IEditor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_src_script_ui_modal_tablemenu_.tablemenu.html" class="tsd-signature-type">TableMenu</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_src_script_ui_modal_modalbase_.modalbase.html">ModalBase</a>.<a href="_src_script_ui_modal_modalbase_.modalbase.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/TableMenu.ts#L168">src/script/ui/modal/TableMenu.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/TableMenu.ts#L179">src/script/ui/modal/TableMenu.ts:179</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>editor: <a href="../interfaces/_src_index_.ieditor.html" class="tsd-signature-type">IEditor</a></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_src_script_ui_modal_tablemenu_.tablemenu.html" class="tsd-signature-type">TableMenu</a></h4>
 						</li>
 					</ul>
@@ -156,13 +163,23 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="editor" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> editor</h3>
+					<div class="tsd-signature tsd-kind-icon">editor<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_src_index_.ieditor.html" class="tsd-signature-type">IEditor</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/TableMenu.ts#L164">src/script/ui/modal/TableMenu.ts:164</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="menulist" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> menu<wbr>List</h3>
-					<div class="tsd-signature tsd-kind-icon">menu<wbr>List<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_src_script_ui_modal_modalbase_.imenuitem.html" class="tsd-signature-type">IMenuItem</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [{text: &#x27;上方增加行&#x27;,key: TableEvent.EVENT_ADD_ROW_ABOVE},{text: &#x27;下方增加行&#x27;,subText: &#x27;⌘+Enter&#x27;,splitLineBottom: true,key: TableEvent.EVENT_ADD_ROW_BELOW},{text: &#x27;左侧增加列&#x27;,key: TableEvent.EVENT_ADD_COL_BEFORE},{text: &#x27;右侧增加列&#x27;,subText: &#x27;⌘+⇧+Enter&#x27;,splitLineBottom: true,key: TableEvent.EVENT_ADD_COL_AFTER},{text: &#x27;对齐方式&#x27;,splitLineBottom: true,key: TableEvent.EVENT_ALIGN_GROUP,children: [{text: &#x27;左对齐&#x27;,key: TableEvent.EVENT_ALIGN_LEFT,subText: &#x27;⌘+←&#x27;,type: &#x27;checkItem&#x27;},{text: &#x27;居中&#x27;,key: TableEvent.EVENT_ALIGN_CENTER,type: &#x27;checkItem&#x27;},{text: &#x27;右对齐&#x27;,key: TableEvent.EVENT_ALIGN_RIGHT,subText: &#x27;⌘+→&#x27;,type: &#x27;checkItem&#x27;}]},{text: &#x27;删除当前行&#x27;,key: TableEvent.EVENT_DELETE_ROW},{text: &#x27;删除当前列&#x27;,key: TableEvent.EVENT_DELETE_COL},{text: &#x27;删除表格&#x27;,splitLineBottom: true,key: TableEvent.EVENT_DELETE_TABLE},{text: &#x27;复制表格&#x27;,key: TableEvent.EVENT_COPY_HTML}]</span></div>
+					<div class="tsd-signature tsd-kind-icon">menu<wbr>List<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_src_script_ui_modal_modalbase_.imenuitem.html" class="tsd-signature-type">IMenuItem</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [{text: &#x27;上方增加行&#x27;,key: TableEvent.EVENT_ADD_ROW_ABOVE},{text: &#x27;下方增加行&#x27;,subText: &#x27;⌘+Enter&#x27;,splitLineBottom: true,key: TableEvent.EVENT_ADD_ROW_BELOW},{text: &#x27;左侧增加列&#x27;,key: TableEvent.EVENT_ADD_COL_BEFORE},{text: &#x27;右侧增加列&#x27;,subText: &#x27;⌘+⇧+Enter&#x27;,splitLineBottom: true,key: TableEvent.EVENT_ADD_COL_AFTER},{text: &#x27;对齐方式&#x27;,splitLineBottom: true,key: TableEvent.EVENT_ALIGN_GROUP,children: [{text: &#x27;左对齐&#x27;,key: TableEvent.EVENT_ALIGN_LEFT,subText: &#x27;⌘+←&#x27;,type: &#x27;checkItem&#x27;},{text: &#x27;居中&#x27;,key: TableEvent.EVENT_ALIGN_CENTER,type: &#x27;checkItem&#x27;},{text: &#x27;右对齐&#x27;,key: TableEvent.EVENT_ALIGN_RIGHT,subText: &#x27;⌘+→&#x27;,type: &#x27;checkItem&#x27;}]},{text: &#x27;删除当前行&#x27;,key: TableEvent.EVENT_DELETE_ROW},{text: &#x27;删除当前列&#x27;,key: TableEvent.EVENT_DELETE_COL},{text: &#x27;删除表格&#x27;,splitLineBottom: true,key: TableEvent.EVENT_DELETE_TABLE},{text: &#x27;复制表格&#x27;,key: TableEvent.EVENT_COPY_HTML},{text: &#x27;复制表格md&#x27;,key: TableEvent.EVENT_COPY_MD}]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/TableMenu.ts#L91">src/script/ui/modal/TableMenu.ts:91</a></li>
+							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/TableMenu.ts#L96">src/script/ui/modal/TableMenu.ts:96</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -173,7 +190,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_src_script_ui_modal_modalbase_.modalbase.html">ModalBase</a>.<a href="_src_script_ui_modal_modalbase_.modalbase.html#modalelement">modalElement</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/ModalBase.ts#L179">src/script/ui/modal/ModalBase.ts:179</a></li>
+							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/ModalBase.ts#L179">src/script/ui/modal/ModalBase.ts:179</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -193,7 +210,7 @@
 					<div class="tsd-signature tsd-kind-icon">table<wbr>Menu<span class="tsd-signature-symbol">:</span> <a href="_src_script_ui_modal_tablemenu_.tablemenu.html" class="tsd-signature-type">TableMenu</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> = null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/TableMenu.ts#L89">src/script/ui/modal/TableMenu.ts:89</a></li>
+							<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/TableMenu.ts#L94">src/script/ui/modal/TableMenu.ts:94</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -223,7 +240,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_src_script_ui_modal_modalbase_.modalbase.html">ModalBase</a>.<a href="_src_script_ui_modal_modalbase_.modalbase.html#clearallcheckedstatus">clearAllCheckedStatus</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/ModalBase.ts#L569">src/script/ui/modal/ModalBase.ts:569</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/ModalBase.ts#L569">src/script/ui/modal/ModalBase.ts:569</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -263,7 +280,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_src_script_ui_modal_modalbase_.modalbase.html">ModalBase</a>.<a href="_src_script_ui_modal_modalbase_.modalbase.html#contentrender">contentRender</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/TableMenu.ts#L199">src/script/ui/modal/TableMenu.ts:199</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/TableMenu.ts#L211">src/script/ui/modal/TableMenu.ts:211</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLUListElement</span></h4>
@@ -282,7 +299,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_src_script_ui_modal_modalbase_.modalbase.html">ModalBase</a>.<a href="_src_script_ui_modal_modalbase_.modalbase.html#createdmenuitem">createdMenuItem</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/ModalBase.ts#L470">src/script/ui/modal/ModalBase.ts:470</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/ModalBase.ts#L470">src/script/ui/modal/ModalBase.ts:470</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -316,7 +333,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_src_script_ui_modal_modalbase_.modalbase.html">ModalBase</a>.<a href="_src_script_ui_modal_modalbase_.modalbase.html#createdmenuitem">createdMenuItem</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/ModalBase.ts#L483">src/script/ui/modal/ModalBase.ts:483</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/ModalBase.ts#L483">src/script/ui/modal/ModalBase.ts:483</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -371,7 +388,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_src_script_ui_modal_modalbase_.modalbase.html">ModalBase</a>.<a href="_src_script_ui_modal_modalbase_.modalbase.html#findmenuitemelementbykey">findMenuItemElementByKey</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/ModalBase.ts#L589">src/script/ui/modal/ModalBase.ts:589</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/ModalBase.ts#L589">src/script/ui/modal/ModalBase.ts:589</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -407,13 +424,13 @@
 					<a name="getcurrentalign" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> get<wbr>Current<wbr>Align</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Current<wbr>Align<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"left"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"right"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"center"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">""</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Current<wbr>Align<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_src_script_ui_modal_tablemenu_.html#tablecolalign" class="tsd-signature-type">TableColAlign</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/TableMenu.ts#L217">src/script/ui/modal/TableMenu.ts:217</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/TableMenu.ts#L238">src/script/ui/modal/TableMenu.ts:238</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -432,7 +449,7 @@
 									</dd>
 								</dl>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">"left"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"right"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"center"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">""</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_src_script_ui_modal_tablemenu_.html#tablecolalign" class="tsd-signature-type">TableColAlign</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -446,9 +463,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/TableMenu.ts#L205">src/script/ui/modal/TableMenu.ts:205</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/TableMenu.ts#L226">src/script/ui/modal/TableMenu.ts:226</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>获取table的html</p>
+									</dd>
+									<dt>author</dt>
+									<dd><p>angle</p>
+									</dd>
+									<dt>date</dt>
+									<dd><p>2020-08-06</p>
+									</dd>
+									<dt>memberof</dt>
+									<dd><p>TableMenu</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -470,7 +503,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_src_script_ui_modal_modalbase_.modalbase.html">ModalBase</a>.<a href="_src_script_ui_modal_modalbase_.modalbase.html#hide">hide</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/ModalBase.ts#L235">src/script/ui/modal/ModalBase.ts:235</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/ModalBase.ts#L235">src/script/ui/modal/ModalBase.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -510,7 +543,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_src_script_ui_modal_modalbase_.modalbase.html">ModalBase</a>.<a href="_src_script_ui_modal_modalbase_.modalbase.html#menuitemclickhandler">menuItemClickHandler</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/TableMenu.ts#L229">src/script/ui/modal/TableMenu.ts:229</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/TableMenu.ts#L250">src/script/ui/modal/TableMenu.ts:250</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -534,7 +567,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_src_script_ui_modal_modalbase_.modalbase.html">ModalBase</a>.<a href="_src_script_ui_modal_modalbase_.modalbase.html#setcheckitemstatus">setCheckItemStatus</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/ModalBase.ts#L550">src/script/ui/modal/ModalBase.ts:550</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/ModalBase.ts#L550">src/script/ui/modal/ModalBase.ts:550</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -583,7 +616,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_src_script_ui_modal_modalbase_.modalbase.html">ModalBase</a>.<a href="_src_script_ui_modal_modalbase_.modalbase.html#show">show</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/ModalBase.ts#L209">src/script/ui/modal/ModalBase.ts:209</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/ModalBase.ts#L209">src/script/ui/modal/ModalBase.ts:209</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -626,7 +659,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_src_script_ui_modal_modalbase_.modalbase.html">ModalBase</a>.<a href="_src_script_ui_modal_modalbase_.modalbase.html#submenushowhandler">subMenuShowHandler</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/TableMenu.ts#L282">src/script/ui/modal/TableMenu.ts:282</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/TableMenu.ts#L307">src/script/ui/modal/TableMenu.ts:307</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -643,13 +676,13 @@
 					<a name="gettablemenu" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Table<wbr>Menu</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Table<wbr>Menu<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_src_script_ui_modal_tablemenu_.tablemenu.html" class="tsd-signature-type">TableMenu</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Table<wbr>Menu<span class="tsd-signature-symbol">(</span>editor<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_index_.ieditor.html" class="tsd-signature-type">IEditor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_src_script_ui_modal_tablemenu_.tablemenu.html" class="tsd-signature-type">TableMenu</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/6f3c7cb/src/script/ui/modal/TableMenu.ts#L163">src/script/ui/modal/TableMenu.ts:163</a></li>
+									<li>Defined in <a href="https://github.com/angleshe/md-editor/blob/b008dd8/src/script/ui/modal/TableMenu.ts#L174">src/script/ui/modal/TableMenu.ts:174</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -670,6 +703,12 @@
 									</dd>
 								</dl>
 							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>editor: <a href="../interfaces/_src_index_.ieditor.html" class="tsd-signature-type">IEditor</a></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_src_script_ui_modal_tablemenu_.tablemenu.html" class="tsd-signature-type">TableMenu</a></h4>
 						</li>
 					</ul>
@@ -722,6 +761,9 @@
 						<a href="../modules/_src_script_utils_addpublicres_.html">&quot;src/script/utils/add<wbr>Public<wbr>Res&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="../modules/_src_script_utils_clipboardutils_.html">&quot;src/script/utils/clipboard<wbr>Utils&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="../modules/_src_script_utils_closestblock_.html">&quot;src/script/utils/closest<wbr>Block&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -762,6 +804,9 @@
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-private">
 								<a href="_src_script_ui_modal_tablemenu_.tablemenu.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_src_script_ui_modal_tablemenu_.tablemenu.html#editor" class="tsd-kind-icon">editor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_src_script_ui_modal_tablemenu_.tablemenu.html#menulist" class="tsd-kind-icon">menu<wbr>List</a>
@@ -812,6 +857,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../modules/_src_script_ui_modal_tablemenu_.html#tablecolalign" class="tsd-kind-icon">Table<wbr>Col<wbr>Align</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -828,6 +876,10 @@
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 			</ul>
 			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+			</ul>
+			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
 			</ul>
@@ -842,9 +894,6 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
