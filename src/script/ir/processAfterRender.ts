@@ -1,5 +1,7 @@
 import { IEditor } from '@/index';
 
+let timer: number | null = null;
+
 /**
  * @description 渲染结束处理
  * @author angle
@@ -8,7 +10,13 @@ import { IEditor } from '@/index';
  * @param {IEditor} editor
  */
 export function processAfterRender(editor: IEditor): void {
-  if (editor.undo) {
-    editor.undo.addToUndoStack();
+  if (timer) {
+    clearTimeout(timer);
   }
+  timer = window.setTimeout(() => {
+    if (editor.undo) {
+      editor.undo.addToUndoStack();
+    }
+    timer = null;
+  }, 500);
 }

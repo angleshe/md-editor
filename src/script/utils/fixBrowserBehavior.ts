@@ -203,3 +203,29 @@ export function fixTable(editor: IEditor, event: KeyboardEvent, range: Range): b
   }
   return false;
 }
+
+/**
+ * @description 修复编辑历史记录
+ * @author angle
+ * @date 2020-08-10
+ * @export
+ * @param {IEditor} editor
+ * @param {KeyboardEvent} event
+ * @returns {boolean}
+ */
+export function fixUndo(editor: IEditor, event: KeyboardEvent): boolean {
+  let res: boolean = true;
+
+  if (matchHotKey('⌘-z', event)) {
+    editor.undo?.undo();
+  } else if (matchHotKey('⇧-⌘-z', event)) {
+    editor.undo?.redo();
+  } else {
+    res = false;
+  }
+  if (res) {
+    event.preventDefault();
+  }
+
+  return res;
+}

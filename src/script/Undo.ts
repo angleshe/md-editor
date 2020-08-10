@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import DiffMatchPatch, { diff_match_patch, patch_obj } from 'diff-match-patch';
 import { IEditor } from '..';
-import { setRangeByWbr } from './utils/selection';
+import { setRangeByWbr, getRange } from './utils/selection';
 /**
  * @description 编辑记录
  * @author angle
@@ -66,7 +66,7 @@ class Undo {
    * @memberof Undo
    */
   public addToUndoStack(): void {
-    const contents: string = this.editor.ir?.contentDom.innerHTML ?? '';
+    const contents: string = this.getContents();
     const diff = this.dmp.diff_main(contents, this.lastText);
     const patchList = this.dmp.patch_make(contents, this.lastText, diff);
     this.lastText = contents;
@@ -111,6 +111,31 @@ class Undo {
       this.editor.ir.contentDom.innerHTML = this.lastText;
       setRangeByWbr(this.editor.ir.contentDom);
     }
+  }
+
+  /**
+   * @description 获取当前内容
+   * @author angle
+   * @date 2020-08-10
+   * @private
+   * @returns {string}
+   * @memberof Undo
+   */
+  private getContents(): string {
+    if (this.editor.ir) {
+      if (this.editor.ir.contentDom.querySelector<'wbr'>('wbr')) {
+        return this.editor.ir.contentDom.innerHTML;
+      }
+      const wbrElement: HTMLElement = document.createElement<'wbr'>('wbr');
+      const range = getRange();
+      if (range) {
+        range.insertNode(wbrElement);
+      }
+      const contents: string = this.editor.ir.contentDom.innerHTML;
+      wbrElement.remove();
+      return contents;
+    }
+    return '';
   }
 }
 

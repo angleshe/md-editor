@@ -1,6 +1,5 @@
 import { IEditor } from '../../index';
-import { fixCodeLanguage, fixCodeBlock, fixTable } from '../utils/fixBrowserBehavior';
-import { matchHotKey } from '../utils/eventUtils';
+import { fixCodeLanguage, fixCodeBlock, fixTable, fixUndo } from '../utils/fixBrowserBehavior';
 
 /**
  * @description 按键处理
@@ -25,15 +24,7 @@ export function processKeydown(editor: IEditor, event: KeyboardEvent): void {
     return;
   }
 
-  if (matchHotKey('⌘-z', event)) {
-    editor.undo?.undo();
-    event.preventDefault();
-    return;
-  }
-
-  if (matchHotKey('⇧-⌘-z', event)) {
-    editor.undo?.redo();
-    event.preventDefault();
+  if (fixUndo(editor, event)) {
     return;
   }
 }

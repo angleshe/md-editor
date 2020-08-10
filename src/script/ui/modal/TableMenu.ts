@@ -14,6 +14,7 @@ import {
 import { getClosestElement } from '@/script/utils/closestBlock';
 import { copy } from '@/script/utils/clipboardUtils';
 import { IEditor } from '@/index';
+import { processAfterRender } from '@/script/ir/processAfterRender';
 
 type TableColAlign = 'left' | 'right' | 'center' | '';
 
@@ -256,24 +257,31 @@ class TableMenu extends ModalBase {
         switch (key) {
           case TableEvent.EVENT_ADD_COL_AFTER:
             insertCol(cellElement, 'after');
+            processAfterRender(this.editor);
             break;
           case TableEvent.EVENT_ADD_COL_BEFORE:
             insertCol(cellElement, 'before');
+            processAfterRender(this.editor);
             break;
           case TableEvent.EVENT_ADD_ROW_ABOVE:
             insertRow(cellElement, 'before');
+            processAfterRender(this.editor);
             break;
           case TableEvent.EVENT_ADD_ROW_BELOW:
             insertRow(cellElement, 'after');
+            processAfterRender(this.editor);
             break;
           case TableEvent.EVENT_ALIGN_CENTER:
             setColAlign(cellElement, 'center');
+            processAfterRender(this.editor);
             break;
           case TableEvent.EVENT_ALIGN_LEFT:
             setColAlign(cellElement, 'left');
+            processAfterRender(this.editor);
             break;
           case TableEvent.EVENT_ALIGN_RIGHT:
             setColAlign(cellElement, 'right');
+            processAfterRender(this.editor);
             break;
           case TableEvent.EVENT_COPY_HTML:
             copy(this.getTableHtml(cellElement), 'text/html');
@@ -286,12 +294,15 @@ class TableMenu extends ModalBase {
             break;
           case TableEvent.EVENT_DELETE_COL:
             deleteCol(cellElement);
+            processAfterRender(this.editor);
             break;
           case TableEvent.EVENT_DELETE_ROW:
             deleteRow(cellElement);
+            processAfterRender(this.editor);
             break;
           case TableEvent.EVENT_DELETE_TABLE:
             deleteTable(cellElement);
+            processAfterRender(this.editor);
             break;
           default:
             isCloseMenu = false;
