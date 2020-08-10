@@ -2,6 +2,7 @@ import { IEditor } from '../../index';
 import { setRangeByWbr } from '../utils/selection';
 import { getClosestBlock } from '../utils/closestBlock';
 import { log } from '../utils/log';
+import { processAfterRender } from './processAfterRender';
 /**
  * @description 解析替换视图md,并设置光标
  * @todo 解析前在光标位置添加wbr标签, 替换md把光标移到wbr标签前并删除wbr
@@ -44,6 +45,8 @@ export function input(editor: IEditor, range: Range): void {
     } else {
       editor.ir.contentDom.innerHTML = html;
     }
+    //
+    processAfterRender(editor);
     //
     setRangeByWbr(editor.ir.contentDom, range);
   }

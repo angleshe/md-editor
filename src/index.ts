@@ -5,12 +5,14 @@ import IR from './script/ir';
 import { addScript } from './script/utils/addPublicRes';
 import { createdLute } from './script/markdown/lute';
 import 'res/iconFonts/iconfont.css';
+import Undo from './script/Undo';
 
 export interface IEditor {
   options: Required<IOptions>;
   element: HTMLElement;
   ir?: IR;
   lute?: Lute;
+  undo?: Undo;
 }
 
 class MdEditor {
@@ -63,6 +65,8 @@ class MdEditor {
     initUi(this.editor);
 
     this.editor.ir = new IR(this.editor);
+
+    this.editor.undo = new Undo(this.editor);
 
     this.editor.ir.show();
   }

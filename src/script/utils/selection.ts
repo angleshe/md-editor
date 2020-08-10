@@ -12,15 +12,34 @@ export function setSelectionFocus(range: Range): void {
     selection.addRange(range);
   }
 }
+
+/**
+ * @description 获取range
+ * @author angle
+ * @date 2020-07-29
+ * @export
+ * @returns {(Range | null)}
+ */
+export function getRange(): Range | null {
+  const selection = getSelection();
+  if (selection) {
+    return selection.getRangeAt(0);
+  }
+  return null;
+}
+
 /**
  * @description 光标到wbr并删除wbr
  * @author angle
- * @date 2020-07-01
+ * @date 2020-08-10
  * @export
  * @param {HTMLElement} element
- * @param {Range} range
+ * @param {Range} [range=getRange() ?? document.createRange()]
  */
-export function setRangeByWbr(element: HTMLElement, range: Range): void {
+export function setRangeByWbr(
+  element: HTMLElement,
+  range: Range = getRange() ?? document.createRange()
+): void {
   const wbrElement = element.querySelector<'wbr'>('wbr');
   if (wbrElement) {
     if (wbrElement.previousSibling) {
@@ -61,19 +80,4 @@ export function setRangeByElement(element: Element, position: 'before' | 'after'
   range.selectNodeContents(element);
   range.collapse(position === 'before');
   setSelectionFocus(range);
-}
-
-/**
- * @description 获取range
- * @author angle
- * @date 2020-07-29
- * @export
- * @returns {(Range | null)}
- */
-export function getRange(): Range | null {
-  const selection = getSelection();
-  if (selection) {
-    return selection.getRangeAt(0);
-  }
-  return null;
 }

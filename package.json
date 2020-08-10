@@ -26,6 +26,7 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@types/copy-webpack-plugin": "^6.0.0",
+    "@types/diff-match-patch": "^1.0.32",
     "@types/mini-css-extract-plugin": "^0.9.1",
     "@types/stylelint-webpack-plugin": "^2.0.0",
     "@types/webpack-dev-server": "^3.11.0",
@@ -89,5 +90,8 @@
     "src/**/*.scss",
     "demo/**/*.ts*",
     "demo/**/*.scss"
-  ]
+  ],
+  "dependencies": {
+    "diff-match-patch": "^1.0.5"
+  }
 }
